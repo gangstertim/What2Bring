@@ -549,6 +549,7 @@ a:hover {
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;
+  color:#cccfff;
 }
 
 .container:before,
@@ -1003,7 +1004,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  background-color: #ffffff;
+  background-color: #fffccc;
   border: 1px solid #cccccc;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
