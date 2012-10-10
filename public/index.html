@@ -18,15 +18,20 @@
         }
 
       .span4 {
-        background-color:#66FFff
-        min-height: 100%}  <!--Take this out for colored boxes-->
+        background-color:#FFFFFF;
+        min-height: 100%} 
 
-
-      input {width:94%; box-sizing: border-box;}
-      input[type=text] {height: 24px}
+      input {
+        width:100%; 
+        box-sizing: border-box;}
+      input[type=text] {
+        height: 24px;
+        width: 100%;}
       input[type=number] {height: 24px;}
       input[type=email] {height: 24px;}
       input[type=date] {height: 30px}
+
+      h2 {margin-left: 8%;}
 
       button {
         width: 100%;
@@ -89,7 +94,7 @@
       <div class="row">
         <div class="span4">
           <h2>Where & When?</h2>
-          <form class="form-horizontal">
+          <form class="form-horizontal.span2">
            <div class="control-group">
             <label class="control-label" for="inputDate">Event Date</label>
             <div class="controls">
@@ -124,7 +129,7 @@
         </div>
         <div class="span4">
           <h2>Who?</h2>
-             <form class="form-horizontal">
+             <form class="form-horizontal.span2">
            <div class="control-group">
             <label class="control-label" for="inputName">Who Are You?</label>
             <div class="controls">
@@ -154,9 +159,10 @@
           </div>
         </form>
        </div>
+
         <div class="span4">
           <h2>What?</h2>
-          <form class="form-horizontal">
+          <form class="form-horizontal.span2">
            <div class="control-group">
             <label class="control-label" for="inputToBring">What should guests bring?  Separate dishes with commas.</label>
             <div class="controls">
