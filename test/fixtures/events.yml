@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  date: 2012-10-10
+  time: 2012-10-10 12:34:45
+  location: MyString
+  description: MyText
+  who: MyString
+  email: MyString
+  guests: 1
+  emails: MyText
+  dishes: MyText
+  cash: false
+  howmuch: 9.99
+
+two:
+  name: MyString
+  date: 2012-10-10
+  time: 2012-10-10 12:34:45
+  location: MyString
+  description: MyText
+  who: MyString
+  email: MyString
+  guests: 1
+  emails: MyText
+  dishes: MyText
+  cash: false
+  howmuch: 9.99
