@@ -11,51 +11,55 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, 
+                class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
+  
+  <div class="control-group">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :time %><br />
     <%= f.time_select :time %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :who %><br />
     <%= f.text_field :who %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :guests %><br />
     <%= f.number_field :guests %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :emails %><br />
     <%= f.text_area :emails %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :dishes %><br />
     <%= f.text_area :dishes %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :cash %><br />
     <%= f.check_box :cash %>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= f.label :howmuch %><br />
     <%= f.text_field :howmuch %>
   </div>
