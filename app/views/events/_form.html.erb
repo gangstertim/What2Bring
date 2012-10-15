@@ -1,3 +1,4 @@
+
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -11,59 +12,85 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :name, 
-                class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name %>
-    </div>
+  <div class="hero-unit">
+        <h1>What2Bring</h1>
+        <p>You already know when it's happenening.  Now, it's only a question of who's coming and what they're bringing.</p>
+        <h3>Let's get started:</h3>
+        <form class="form">
+          <div class="control-group">
+            <%= f.label :name, 
+                        class: 'control-label' %>
+         <div class="controls">
+            <%= f.text_field :name %>
+         </div>
+         </div>
   </div>
-  
-  <div class="control-group">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="control-group">
-    <%= f.label :time %><br />
-    <%= f.time_select :time %>
-  </div>
-  <div class="control-group">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="control-group">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="control-group">
-    <%= f.label :who %><br />
-    <%= f.text_field :who %>
-  </div>
-  <div class="control-group">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="control-group">
-    <%= f.label :guests %><br />
-    <%= f.number_field :guests %>
-  </div>
-  <div class="control-group">
-    <%= f.label :emails %><br />
-    <%= f.text_area :emails %>
-  </div>
-  <div class="control-group">
-    <%= f.label :dishes %><br />
-    <%= f.text_area :dishes %>
-  </div>
-  <div class="control-group">
-    <%= f.label :cash %><br />
-    <%= f.check_box :cash %>
-  </div>
-  <div class="control-group">
-    <%= f.label :howmuch %><br />
-    <%= f.text_field :howmuch %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+
+        <div class="row">
+        <div class="span4">
+          <h2>Where & When?</h2>
+            <div class="control-group">
+              <%= f.label :date %>
+              <%= f.date_select :date %>
+            </div>
+           <div class="control-group">
+             <%= f.label :time %>
+             <%= f.time_select :time %>
+           </div>
+          <div class="control-group">
+             <%= f.label :location %>
+             <%= f.text_field :location %>
+          </div>
+          <div class="control-group">
+             <%= f.label :description %>
+             <%= f.text_area :description %>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+        <div class="span4">
+          <h2>Who?</h2>
+          <div class="control-group">
+            <%= f.label :who %>
+            <%= f.text_field :who %>
+          </div>
+          <div class="control-group">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </div>
+          <div class="control-group">
+            <%= f.label :guests %>
+            <%= f.number_field :guests %>
+          </div>
+          <div class="control-group">
+            <%= f.label :emails %>
+            <%= f.text_area :emails %>
+          </div>
+       </div>
+     </div>
+
+        <div class="row">
+        <div class="span4">
+          <h2>What?</h2>
+              <div class="control-group">
+                <%= f.label :dishes %>
+                <%= f.text_area :dishes %>
+              </div>
+              <div class="control-group">
+                <%= f.label :cash %>
+                <%= f.check_box :cash %>
+              </div>
+              <div class="control-group">
+                <%= f.label :howmuch %>
+                <%= f.text_field :howmuch %>
+              </div>
+        </div>
+      </div>
+      </form>
+
+  <div class="form-actions">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
