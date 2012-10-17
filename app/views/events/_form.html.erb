@@ -26,12 +26,12 @@
     </div>
   </div>
 
- 
+  <div class="row">
     <div class="span4">
       <h2>Where & When?</h2>
       <div class="control-group">
         <%= f.label :date %>
-        <%= f.date_select :date %>
+        <%= f.text_field :date, type:"date" %>
       </div>
       <div class="control-group">
        <%= f.label :time %>
@@ -42,27 +42,27 @@
        <%= f.text_field :location %>
      </div>
      <div class="control-group">
-       <%= f.label :description %>
+       <%= f.label "Event Description" %>
        <%= f.text_area :description %>
      </div>
    </div>
 
-  <div class="span4">
+   <div class="span4">
     <h2>Who?</h2>
     <div class="control-group">
-      <%= f.label :who %>
+      <%= f.label "Who are you?" %>
       <%= f.text_field :who %>
     </div>
     <div class="control-group">
-      <%= f.label :email %>
+      <%= f.label "Your email address" %>
       <%= f.text_field :email %>
     </div>
     <div class="control-group">
-      <%= f.label :guests %>
+      <%= f.label "How many guests can you host?" %>
       <%= f.number_field :guests %>
     </div>
     <div class="control-group">
-      <%= f.label :emails %>
+      <%= f.label "What are their emails? (optional)" %>
       <%= f.text_area :emails %>
     </div>
   </div>
@@ -74,17 +74,19 @@
       <%= f.text_area :dishes %>
     </div>
     <div class="control-group">
-      <%= f.label :cash %>
+      <%= f.label "Can guests pay with cash?" %>
       <%= f.check_box :cash %>
     </div>
     <div class="control-group">
-      <%= f.label :howmuch %>
+      <%= f.label "How much?" %>
       <%= f.text_field :howmuch %>
     </div>
   </div>
 </form>
+</div>
 
 <div class="form-actions">
   <%= f.submit class: "btn btn-primary" %>
 </div>
+
 <% end %>
