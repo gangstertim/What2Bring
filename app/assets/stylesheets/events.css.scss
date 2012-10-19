@@ -1,3 +1,51 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 1170px;
+}
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+input {
+  width:80%; 
+  box-sizing: border-box;
+}
+
+input[type=text] {height: 30px;}
+input[type=number] {height: 30px;}
+input[type=email] {height: 30px;}
+input[type=date] {height: 30px}
+
+input, textarea, .uneditable-input {
+  margin-left: 0;
+  max-height: 100px;
+  width:80%;
+}
+
+select {
+  width: 39%;
+}
+
+.container {
+  margin-right: 10%;
+  margin-left: 10%;
+  width:82%;
+}
+.hero-unit {
+  background-color: #33BBFF;
+}
+.span4 {
+  background-color:#FFFFFF;
+  padding-left: 0px;
+}
+.row {
+  max-height: 800px;
+}
+.btn {
+  display: block;
+}

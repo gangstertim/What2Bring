@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
 
 <p>
-  <b>Date:</b>
-  <%= @event.date %>
+  <h4><%= @event.who %> is having a </h4>
+  <h1><%= @event.name %>!!!</h1>
 </p>
 
-<p>
-  <b>Time:</b>
-  <%= @event.time %>
-</p>
+<img src="../assets/funevent.jpeg" alt="it's gonna be awesome!">
+
+<p><h2>Can you make it?</h2></p>
+<p><h4>It's on <%= @event.date %> at <%= time_format(@event.time) %></h4></p>
 
 <p>
   <b>Location:</b>
@@ -25,25 +21,24 @@
   <%= @event.description %>
 </p>
 
-<p>
-  <b>Who:</b>
-  <%= @event.who %>
-</p>
-
+<!--
 <p>
   <b>Email:</b>
   <%= @event.email %>
 </p>
+-->
 
 <p>
   <b>Guests:</b>
   <%= @event.guests %>
 </p>
 
+<!--
 <p>
   <b>Emails:</b>
   <%= @event.emails %>
 </p>
+-->
 
 <p>
   <b>Dishes:</b>
@@ -61,5 +56,7 @@
 </p>
 
 
+<!--
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+-->
