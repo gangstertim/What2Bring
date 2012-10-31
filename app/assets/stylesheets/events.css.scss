@@ -9,6 +9,7 @@
 body {
   padding-top: 60px;
   padding-bottom: 40px;
+
 }
 
 input {
@@ -34,14 +35,16 @@ select {
 .container {
   margin-right: 10%;
   margin-left: 10%;
-  width:82%;
+  width:83%;
 }
 .hero-unit {
   background-color: #33BBFF;
+  min-width:350px;
 }
-.span4 {
+.span5 {
   background-color:#FFFFFF;
   padding-left: 0px;
+  max-width: 30%;
 }
 .row {
   max-height: 800px;
