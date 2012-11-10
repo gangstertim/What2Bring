@@ -1,3 +1,4 @@
+require 'chronic'
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
@@ -40,6 +41,13 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+     puts params[:event]
+
+     Time.zone = "Eastern Time (US & Canada)"
+     Chronic.time_class = Time.zone
+     params[:event][:datec]=Chronic::parse(params[:event][:datec])
+     puts params[:event][:datec]
+
     @event = Event.new(params[:event])
 
     respond_to do |format|

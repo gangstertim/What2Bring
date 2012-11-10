@@ -9,9 +9,11 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
 	gem 'debugger'
+	gem 'chronic'
 end
 group :production do
 	gem 'pg'
+	gem 'chronic'
 end
 
 

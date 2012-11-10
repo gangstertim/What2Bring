@@ -1,0 +1,6 @@
+What we need to do:
+
+Fix the application helper.  On posting the event with the submit button, the string in the date field needs to parsed and passed to the database via mr helper.
+
+also, we still need to get rid of the time column in the database.
+

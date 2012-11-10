@@ -9,7 +9,9 @@
 <img src="../assets/funevent.jpeg" alt="it's gonna be awesome!">
 
 <p><h2>Can you make it?</h2></p>
-<p><h4>It's on <%= @event.date %> at <%= time_format(@event.time) %></h4></p>
+<p><h4>It's on <%= @event.datec %>. </p>
+<p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
+  <%= @event.datec.strftime('%I : %M %p') %></h4></p>
 
 <p>
   <b>Location:</b>
