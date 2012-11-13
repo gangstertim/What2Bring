@@ -10,7 +10,7 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'debugger'
 	gem 'chronic'
-	gem 'letter_opener'
+	gem 'letter_opener', github: 'ryanb/letter_opener'
 end
 group :production do
 	gem 'pg'
