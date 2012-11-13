@@ -36,8 +36,6 @@ What2bring::Application.configure do
     :domain => 'heroku.com'
   } 
 
-  config.action_mailer.default_url_options { :host => "what2bring.herokapp.com" }
-
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
