@@ -52,6 +52,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        Notifications.new_event(@event).deliver
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
@@ -60,9 +61,6 @@ class EventsController < ApplicationController
       end
     end
 
-    if @event.save
-      Notifications.new_event(@event).deliver
-    end
   end
 
   # PUT /events/1

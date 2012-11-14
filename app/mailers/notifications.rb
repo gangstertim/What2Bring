@@ -8,7 +8,7 @@ class Notifications < ActionMailer::Base
   #
   def new_event(event)
     # @greeting = "Hi"
-    @event = event
+    @greeting = "Hey there!"
 
     mail to: event.email
   end
