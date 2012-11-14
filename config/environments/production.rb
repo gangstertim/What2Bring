@@ -27,6 +27,15 @@ What2bring::Application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
+  config.action_mailer.smtp_settings = { 
+    :address => 'smtp.sendgrid.net', 
+    :port => '587', 
+    :authentication => :plain, 
+    :user_name =>ENV['SENDGRID_USERNAME'], 
+    :password =>ENV['SENDGRID_PASSWORD'], 
+    :domain => 'heroku.com'
+  } 
+
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 

@@ -59,6 +59,10 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
+    if @event.save
+      Notifications.new_event(@event).deliver
+    end
   end
 
   # PUT /events/1
