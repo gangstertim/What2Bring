@@ -31,7 +31,7 @@
 
 <p>
   <b>Guests Invited:</b>
-  <%= @event.guests %>
+  <%= @event.how_many_guests %>
 </p>
 
 <p>
@@ -61,6 +61,7 @@
   <%= @event.howmuch %>
 </p>
 
+<%= link_to 'RSVP', new_guest_path(@event) %>
 
 <!--
 <%= link_to 'Edit', edit_event_path(@event) %> |

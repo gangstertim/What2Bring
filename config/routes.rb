@@ -1,6 +1,9 @@
 What2bring::Application.routes.draw do
+  resources :guests
+
   resources :events
 
+  match 'events/:id/rsvp' => 'events#rsvp', :as => :rsvp
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

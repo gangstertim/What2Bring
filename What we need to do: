@@ -4,3 +4,7 @@ Fix the application helper.  On posting the event with the submit button, the st
 
 also, we still need to get rid of the time column in the database.
 
+
+So currently we've generated a scaffold for guests
+
+We are trying to find a way to make a new guest belong to the event it was created from.  We've been fiddling around with the guests_controller form.

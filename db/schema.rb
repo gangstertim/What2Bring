@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010163445) do
+ActiveRecord::Schema.define(:version => 20121130212046) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -20,13 +20,25 @@ ActiveRecord::Schema.define(:version => 20121010163445) do
     t.text     "description"
     t.string   "who"
     t.string   "email"
-    t.integer  "guests"
+    t.integer  "how_many_guests"
     t.text     "emails"
     t.text     "dishes"
     t.boolean  "cash"
     t.decimal  "howmuch"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "event_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  create_table "guests", :force => true do |t|
+    t.string   "name"
+    t.integer  "guest_id"
+    t.string   "email"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "guests", ["event_id"], :name => "index_guests_on_event_id"
 
 end

@@ -1,0 +1,49 @@
+<%= form_for(@guest) do |f| %>
+<h1>Can you come?</h1>
+<h1>RSVP</h>
+
+  <div class="row">
+
+   <div class="span5">
+    <h2>Who are you?</h2>
+    <div class="control-group">
+      <%= f.label "Who are you?" %>
+      <%= f.text_field :who %>
+    </div>
+    <div class="control-group">
+      <%= f.label "Your email address" %>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <div class="span5">
+    <h2>What will you be bringing?</h2>
+    <div class="control-group">
+      <%= f.label :dishes %>
+      <%= f.text_area :dishes %>
+    </div>
+    <div class="control-group">
+      <%= f.label "Can guests pay with cash?" %>
+      <%= f.check_box :cash %>
+    </div>
+  </div>
+
+<row>
+<div class="form-actions">
+  <%= f.submit class: "btn btn-primary" %>
+</div>
+</row>
+
+</form>
+<% end %>
+
+
+
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>
+
+
+
+
+

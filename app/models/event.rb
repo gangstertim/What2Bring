@@ -2,8 +2,9 @@
 
 class Event < ActiveRecord::Base
 
-	attr_accessible :cash, :description, :dishes, :email, :emails, :guests, :howmuch, :location, :name, :datec, :who
+	attr_accessible :cash, :description, :dishes, :email, :emails, :how_many_guests, :howmuch, :location, :name, :datec, :who
 
+	has_many :guests, :dependent => :destroy
 	# before_validation :parse_date
 
 	validates :name, :location, :email, :datec, presence: true
@@ -13,19 +14,8 @@ class Event < ActiveRecord::Base
 		cash == true
 	end
 	
+end
 
-    
-    #  def date
-    #  	validates_presence_of :date
-    #      self.date
-    #  end
-    #  def date=(s)
-    #     self.date = Chronic.parse(s)
-    # end
-
- 	# def parse_date
- 	# puts "***********************************"
- 	#   puts self.date
-  #     self.date = Chronic::parse(self.date_before_type_cast) if attribute_present?("date")
-  #   end
+class Guests < ActiveRecord::Base
+	belongs_to :Event, :foreign_key => "event_id"
 end

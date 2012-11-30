@@ -38,6 +38,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+
+  # GET /events/1/rsvp
+  def rsvp
+    @event = Event.find(params[:id])
+  end
+
+
   # POST /events
   # POST /events.json
   def create
