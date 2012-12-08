@@ -36,9 +36,8 @@ class GuestsController < ApplicationController
   # GET /guests/new
   # GET /guests/new.json
   def new
-    #@guest = @event.guests.build
-
-    @events = Event.all
+    @event = Event.find(params[:id])
+    @guest = @event.guests.build
 
     respond_to do |format|
       format.html # new.html.erb

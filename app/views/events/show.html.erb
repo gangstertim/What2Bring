@@ -61,9 +61,8 @@
   <%= @event.howmuch %>
 </p>
 
-<%= link_to 'RSVP', new_guest_path(@event) %>
-
+<%= link_to 'RSVP', guest_rsvp_path(:id => @event.id) %>
 <!--
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> -->
 -->
