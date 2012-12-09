@@ -61,6 +61,25 @@
   <%= @event.howmuch %>
 </p>
 
+
+
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script><a href="#" id="go">Get data</a>
+
+
+
+<div id="display">
+  No data yet
+</div>
+
+<script>$("#go").click(function (e) {
+  e.preventDefault();
+  console.log("clicked");
+  $.get("http://localhost:3000/guests/1/new", function (data) {
+     console.log(data);
+     $("#display").html(data);
+  });
+});</script>
+
 <%= link_to 'RSVP', guest_rsvp_path(:id => @event.id) %>
 <!--
 <%= link_to 'Edit', edit_event_path(@event) %> |

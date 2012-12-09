@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$("#go").click(function (e) {
+  e.preventDefault();            
+  console.log("clicked"); 
+  $.get("http://localhost:3000/guests/1/new", function (data) {
+     console.log(data);
+     $("#display").html(data);
+  });
+});
