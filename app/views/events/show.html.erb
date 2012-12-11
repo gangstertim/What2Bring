@@ -16,78 +16,59 @@
   </div>  <!-- end picture -->
 </div> <!-- end hero unit -->
 
+<div class="row">
+  <p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
+    <%= @event.datec.strftime('%I : %M %p') %></h4></p>
 
-<p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
-  <%= @event.datec.strftime('%I : %M %p') %></h4></p>
+    <div class="span5">
+      <p>
+        <b>Where?</b>
+        <%= @event.location %>
+      </p>
 
-  <p>
-    <b>Location:</b>
-    <%= @event.location %>
-  </p>
+      <p>
+        <b>What?</b>
+        <%= @event.description %>
+      </p>
 
-  <p>
-    <b>Description:</b>
-    <%= @event.description %>
-  </p>
+      <p class = "hidden">
+        <b>How many guests could come?</b>
+        <%= @event.how_many_guests %>
+      </p>
 
-  <p>
-    <b>Guests Invited:</b>
-    <%= @event.how_many_guests %>
-  </p>
+      <p>
+        <b>What still needs to be brought?</b>
+        <%= @event.dishes %>
+      </p>
 
-  <p>
-    <b>Dishes:</b>
-    <%= @event.dishes %>
-  </p>
+      <p>
+        <b>Can I chip in some cash instead?</b>
+        <%= @event.cash %>
+      </p>
 
-  <p>
-    <b>Cash:</b>
-    <%= @event.cash %>
-  </p>
+      <p>
+        <b>How much?</b>`
+        <%= @event.howmuch %>
+      </p>
 
-  <p>
-    <b>Howmuch:</b>`
-    <%= @event.howmuch %>
-  </p>
-
-  <div class = guest-container>
-    <p id="names">
-      <%= @guests_names %>
+    </div> <!-- end of span5 -->
+    <div class = "span5">
+      <b> Who's coming? </b>
+      <p id="names">
+        <%= @guests_names %>
+      </p>
+    </div> <!-- span5 -->
+    <div class = "span5">
+      <p id = 'rsvp'>
     </p>
-  </div> <!-- end of guest container -->
+  </div> <!-- span5 -->
+</div> <!-- end of row -->
 
 
-
-  <%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>
-
-
-  <script>
-  function myFunction()
-  {
-    temp = document.getElementById('names').innerHTML;
-    temp = temp.split("\"");
-    var temp2 = [];
-    l=temp.length;
-    console.log(temp);
-
-    for (var i=0; i<l; i++)
-    {
-      if (i%2 == 1) {
-        temp2[(i-1)/2] = (temp[i] + "<br>");
-        console.log(i);
-      }
-    }
-
-    console.log(temp2);
-    document.getElementById('names').innerHTML = "";
-    $("<div class = placeholder />").html(temp2).appendTo($("#names"));
-    //document.getElementById('names').innerHTML = "boobies";
-  }
-    </script>
+<%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>
 
 
-
-    <button onclick="myFunction()">Try it</button>
+<body onload="nameParser()">
 
 
 

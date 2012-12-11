@@ -17,10 +17,46 @@
 $(function() {
 	$("#new_guest").click(function (e) {
 		e.preventDefault();
+		var rsvp = document.getElementById('rsvp');
 		console.log("got clicked yo");
-		$('<div class="panel" />').
+		$('<p />').
 		load(this.href).
-		insertAfter(this);
+		insertBefore(rsvp);
 		$(this).hide();
 	});
 });
+// $(function () {
+// $("#new_guest".click(function (e) {
+// 	e.preventDefault();
+// 	$("<div />")
+
+// }));
+// });
+
+function addDish() {
+	    var dish_text = $("#event_dishes").val();
+	    $("<p />").html(dish_text).appendTo($("#dishes_label"));
+  };
+
+function nameParser()
+{
+	temp = document.getElementById('names').innerHTML;
+	temp = temp.split("\"");
+	var temp2 = [];
+	l=temp.length;
+	console.log(temp);
+
+	for (var i=0; i<l; i++)
+	{
+		if (i%2 == 1) {
+			temp2[(i-1)/2] = (temp[i] + "<br>");
+			console.log(i);
+		}
+	}
+
+	console.log(temp2);
+	document.getElementById('names').innerHTML = "";
+	$("<div class = placeholder />").html(temp2).appendTo($("#names"));
+    //document.getElementById('names').innerHTML = "boobies";
+}
+
