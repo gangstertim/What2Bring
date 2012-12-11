@@ -28,9 +28,9 @@ class GuestsController < ApplicationController
   end
 
   # GET /guests/1
-  # GET /guests/1.json
+  # GET event/:event_id/guests/1.json
   def show
-    @guest = Guest.find(params[:id])
+    @guest = Guest.find(params[:event_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -61,7 +61,7 @@ class GuestsController < ApplicationController
   end
 
   # POST /guests
-  # POST /guests.json
+  # POST event/:event_id/guests.json
   def create
     p "*******************"
     pp params[:guest]

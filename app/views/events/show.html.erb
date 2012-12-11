@@ -36,10 +36,6 @@
   </p>
 
   <p>
-    <b>Guests Coming:</b>
-  </p>
-
-  <p>
     <b>Dishes:</b>
     <%= @event.dishes %>
   </p>
@@ -50,10 +46,15 @@
   </p>
 
   <p>
-    <b>Howmuch:</b>
+    <b>Howmuch:</b>`
     <%= @event.howmuch %>
   </p>
 
+  <div class = guest-container>
+    <p>
+      <%= @guests_names %>
+    </p>
+  </div> <!-- end of guest container -->
 
 
   <%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>

@@ -15,6 +15,11 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @guests_names = @event.guests.find(:all, :select => "name")
+
+     p "*******************"
+    pp @guests_names
+     p "*******************"
 
     respond_to do |format|
       format.html # show.html.erb

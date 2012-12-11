@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20121130212046) do
 
   create_table "guests", :force => true do |t|
     t.string   "name"
-    t.integer  "guest_id"
     t.string   "email"
     t.integer  "event_id"
     t.datetime "created_at", :null => false
