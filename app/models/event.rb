@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 
 	attr_accessible :cash, :description, :dishes, :email, :emails, :how_many_guests, :howmuch, :location, :name, :datec, :who
 
-	has_many :guests, :dependent => :destroy
+	has_many :guests#, :dependent => :destroy
 	# before_validation :parse_date
 
 	validates :name, :location, :email, :datec, presence: true
@@ -17,5 +17,5 @@ class Event < ActiveRecord::Base
 end
 
 class Guests < ActiveRecord::Base
-	belongs_to :Event, :foreign_key => "event_id"
+	belongs_to :event, :foreign_key => "event_id"
 end

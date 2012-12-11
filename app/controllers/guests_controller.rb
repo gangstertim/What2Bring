@@ -10,6 +10,12 @@ class GuestsController < ApplicationController
   #  @event.guests.create
   #end
 
+  
+  def guests
+    @event = Event.find(params[:event_id]);
+    @event.guests
+  end
+
   # GET /guests
   # GET /guests.json
   def index
@@ -33,11 +39,14 @@ class GuestsController < ApplicationController
   end
 
 
-  # GET /guests/new
+  # GET events/:event_id/guests/new
   # GET /guests/new.json
   def new
-    @event = Event.find(params[:id])
-    @guest = @event.guests.build
+   @guest = guests.build
+   # @event = Event.find(params[:event_id]);
+   #@guest = @event.guests.build #@event_guests.build
+   
+   # @guest = Guest.new(@event.id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -54,6 +63,12 @@ class GuestsController < ApplicationController
   # POST /guests
   # POST /guests.json
   def create
+    p "*******************"
+    pp params[:guest]
+
+    p "*******************"
+
+    #@guest = Guest.find(params[:id])
     @guest = Guest.new(params[:guest])
 
     respond_to do |format|

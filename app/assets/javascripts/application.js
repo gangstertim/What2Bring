@@ -14,11 +14,13 @@
 //= require jquery_ujs
 //= require_tree .
 
-$("#go").click(function (e) {
-  e.preventDefault();            
-  console.log("clicked"); 
-  $.get("http://localhost:3000/guests/1/new", function (data) {
-     console.log(data);
-     $("#display").html(data);
-  });
-});
+// $(function() {
+// 	$("#new_guest").click(function (e) {
+// 		e.preventDefault();
+// 		console.log("got clicked yo");
+// 		$('<div class="panel" />').
+// 		load(this.href).
+// 		insertAfter(this);
+// 		$(this).hide();
+// 	});
+// });

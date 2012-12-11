@@ -53,7 +53,8 @@ class EventsController < ApplicationController
      Time.zone = "Eastern Time (US & Canada)"
      Chronic.time_class = Time.zone
      params[:event][:datec]=Chronic::parse(params[:event][:datec])
-     puts params[:event][:datec]
+     puts "************************"
+     puts params[:event][:event_id]
 
     @event = Event.new(params[:event])
 
