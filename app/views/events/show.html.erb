@@ -1,56 +1,62 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <h4><%= @event.who %> is having a </h4>
-  <h1><%= @event.name %>!!!</h1>
-</p>
 
-<div class = "picture">
-<img src="../assets/funevent.jpeg" alt="it's gonna be awesome!">
-</div>
 
-<p><h2>Can you make it?</h2></p>
+<div class = "hero-unit">
+  <div class = "hero-container">
+    <p>
+      <h4><%= @event.who %> is having a </h4>
+      <h1><%= @event.name %>!!!</h1>
+      <p><h2>Can you make it?</h2></p>
+    </p>
+  </div> <!-- end hero container -->
+  <div class = "picture">
+    <img src="../assets/funevent.jpeg" alt="it's gonna be awesome!">
+  </div>  <!-- end picture -->
+</div> <!-- end hero unit -->
+
+
 <p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
   <%= @event.datec.strftime('%I : %M %p') %></h4></p>
 
-<p>
-  <b>Location:</b>
-  <%= @event.location %>
-</p>
+  <p>
+    <b>Location:</b>
+    <%= @event.location %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <b>Guests Invited:</b>
-  <%= @event.how_many_guests %>
-</p>
+  <p>
+    <b>Guests Invited:</b>
+    <%= @event.how_many_guests %>
+  </p>
 
-<p>
-  <b>Guests Coming:</b>
-</p>
+  <p>
+    <b>Guests Coming:</b>
+  </p>
 
-<p>
-  <b>Dishes:</b>
-  <%= @event.dishes %>
-</p>
+  <p>
+    <b>Dishes:</b>
+    <%= @event.dishes %>
+  </p>
 
-<p>
-  <b>Cash:</b>
-  <%= @event.cash %>
-</p>
+  <p>
+    <b>Cash:</b>
+    <%= @event.cash %>
+  </p>
 
-<p>
-  <b>Howmuch:</b>
-  <%= @event.howmuch %>
-</p>
+  <p>
+    <b>Howmuch:</b>
+    <%= @event.howmuch %>
+  </p>
 
 
 
-<%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>
+  <%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>
 <!--
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %> -->

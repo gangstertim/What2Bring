@@ -37,9 +37,21 @@ select {
   margin-left: 10%;
   width:83%;
 }
+
 .hero-unit {
   background-color: #33BBFF;
   min-width:350px;
+  min-height:175px;
+}
+
+.picture {
+  width: 50%;
+  float:right;
+}
+
+.hero-container {
+  width: 50%;
+  float:left;
 }
 .span5 {
   background-color:#FFFFFF;

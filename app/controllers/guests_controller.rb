@@ -70,11 +70,13 @@ class GuestsController < ApplicationController
 
     #@guest = Guest.find(params[:id])
     @guest = Guest.new(params[:guest])
+    @guest.event = Event.find(params[:event_id])
+    pp @guest
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
-        format.json { render json: @guest, status: :created, location: @guest }
+        format.html { redirect_to @guest.event, notice: 'Guest was successfully created.' }
+        format.json { render json: @guest.event, status: :created, location: @event }
       else
         format.html { render action: "new" }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
