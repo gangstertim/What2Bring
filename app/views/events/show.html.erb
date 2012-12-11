@@ -51,13 +51,46 @@
   </p>
 
   <div class = guest-container>
-    <p>
+    <p id="names">
       <%= @guests_names %>
     </p>
   </div> <!-- end of guest container -->
 
 
+
   <%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>
+
+
+  <script>
+  function myFunction()
+  {
+    temp = document.getElementById('names').innerHTML;
+    temp = temp.split("\"");
+    var temp2 = [];
+    l=temp.length;
+    console.log(temp);
+
+    for (var i=0; i<l; i++)
+    {
+      if (i%2 == 1) {
+        temp2[(i-1)/2] = (temp[i] + "<br>");
+        console.log(i);
+      }
+    }
+
+    console.log(temp2);
+    document.getElementById('names').innerHTML = "";
+    $("<div class = placeholder />").html(temp2).appendTo($("#names"));
+    //document.getElementById('names').innerHTML = "boobies";
+  }
+    </script>
+
+
+
+    <button onclick="myFunction()">Try it</button>
+
+
+
 <!--
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %> -->
