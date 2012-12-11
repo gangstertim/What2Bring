@@ -9,17 +9,17 @@
       <h4><%= @event.who %> is having a </h4>
       <h1><%= @event.name %>!!!</h1>
       <p><h2>Can you make it?</h2></p>
-    </p>
-  </div> <!-- end hero container -->
-  <div class = "picture">
-    <img src="../assets/funevent.jpeg" alt="it's gonna be awesome!">
-  </div>  <!-- end picture -->
-</div> <!-- end hero unit -->
+      <p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
+        <%= @event.datec.strftime('%I : %M %p') %></h4></p>
+      </p>
+    </div> <!-- end hero container -->
+    <div class = "picture">
+      <img src="/assets/funevent.jpeg" alt="it's gonna be awesome!">
 
-<div class="row">
-  <p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
-    <%= @event.datec.strftime('%I : %M %p') %></h4></p>
+    </div>  <!-- end picture -->
+  </div> <!-- end hero unit -->
 
+  <div class="row">
     <div class="span5">
       <p>
         <b>Where?</b>
@@ -37,7 +37,7 @@
       </p>
 
       <p>
-        <b>What still needs to be brought?</b>
+        <b>I can bring...</b>
         <%= @event.dishes %>
       </p>
 
@@ -47,25 +47,30 @@
       </p>
 
       <p>
-        <b>How much?</b>`
+        <b>How much?</b>
         <%= @event.howmuch %>
       </p>
 
     </div> <!-- end of span5 -->
     <div class = "span5">
-      <b> Who's coming? </b>
+      <p>
+        <b> Who's coming? </b>
+      </p>
       <p id="names">
         <%= @guests_names %>
-      </p>
-    </div> <!-- span5 -->
-    <div class = "span5">
-      <p id = 'rsvp'>
+      </p><p>
+      <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
+    </p>
+  </div> <!-- span5 -->
+  <div class = "span5">
+    <p id = 'rsvp'>
     </p>
   </div> <!-- span5 -->
 </div> <!-- end of row -->
 
 
-<%= link_to 'RSVP', new_event_guest_path( @event ), id: 'new_guest' %>
+
+
 
 
 <body onload="nameParser()">
@@ -75,4 +80,3 @@
 <!--
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %> -->
--->

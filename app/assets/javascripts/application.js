@@ -14,11 +14,12 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function() {
+$(function addGuest() {
 	$("#new_guest").click(function (e) {
 		e.preventDefault();
 		var rsvp = document.getElementById('rsvp');
-		console.log("got clicked yo");
+		console.log("got clicked yob");
+		console.log(this);	
 		$('<p />').
 		load(this.href).
 		insertBefore(rsvp);
