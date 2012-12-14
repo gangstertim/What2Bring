@@ -38,12 +38,14 @@
       <p>
         <b>I can bring...</b>
       </p>
-      <p id = "dishes_for_listing">
+      <p id = "dishes_for_seeing">
+      </p>
+
+      <p id = "dishes_for_listing", hidden>
         <%= @event.dishes %>
       </p>
 
-      <b>Dishes Brought</b>
-      <p id = "dishes_brought">
+      <p id = "dishes_brought", hidden>
         <%= @event.dishes_temp %>
       </p>
 
