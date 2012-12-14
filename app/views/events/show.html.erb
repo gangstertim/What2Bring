@@ -40,14 +40,20 @@
       </div>
 
       <br>
-
+      <% if @event.description != "" %>
+      
       <a class="pull-left" href="#">
         <embed src="/assets/question.svg" width="65" height="65" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
       </a>
+
+      
+
       <div class="well">
         <h4 class="media-heading">What?</h4>
         <%= @event.description %>
       </div>
+
+      <% end %>
 
       <br><br><br>
 
