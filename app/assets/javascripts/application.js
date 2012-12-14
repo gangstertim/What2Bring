@@ -34,14 +34,6 @@ $(function addGuest() {
 		$(this).hide();
 	});
 
-	$("#create_guest").click(function (e) {
-		e.preventDefault();
-
-		addDishesToGuest();
-
-		var body = $(this).serialize();
-		$.post(this.action, body);
-	});
 });
 
 // $(function () {
@@ -101,17 +93,46 @@ function buttonifyDishes() {
 		replace(/\s+/g, ' ').
 		split(",");
 
+	dishesBrought = document.getElementById('dishes_brought').
+		innerHTML.
+		replace(/\s+/g, ' ').
+		split(",");
+
+	var index = 0;
+	var exists = false;
 	var new_dishes = [];
 	for (var i=0; i<dishes.length - 1; i++) {
-		//<label><input id="lifecheck" type="checkbox" >Lives</label>
-		new_dishes[i] = ("<label><input id=\"clickable_dishes[" + i + "]\" type=\"checkbox\">" + 
-			"<a id = name_dishes[" + i + "]>" + dishes[i] + "</a></label>");
+		for (var j = 0; j<dishesBrought.length - 1; j++) {
+			console.log("dishes = " + dishes[i]);
+			console.log("dishesBrouhgt = " + dishesBrought[j]);
+
+			if (dishes[i] === dishesBrought[j]) {
+				exists = true;
+			}
+		};
+
+		if (exists) {
+			exists = false;
+			continue;
+		}
+
+		new_dishes[index] = ("<label><input id=\"clickable_dishes[" + i + "]\" type=\"checkbox\">" + 
+			"<a id = name_dishes[" + index + "]>" + dishes[i] + "</a></label>");
+		index++;
+		exists = false;
 	}
 	var dishesFC = $("#dishes_for_clicking");
 	var dishesParent = dishesFC.parent();
 	dishesFC.remove();
 	dishesParent.show();
-	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
+
+	if (new_dishes === []) {
+		$("<p id = dishes_for_clicking />").html(
+      "<a>No More Dishes to Bring!</a>"
+      ).appendTo(dishesParent);
+	} else {
+  	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
+  }
 
 }
 
@@ -130,7 +151,6 @@ function addDishesToGuest() {
 	
 
 }
-
 
 function addDishToList(clicked_id) {
 	// document.getElementById('selected_dish')
