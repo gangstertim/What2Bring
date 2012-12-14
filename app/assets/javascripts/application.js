@@ -58,78 +58,95 @@ function addDish() {
 	//     dish_final.outputtext.value += dish_text;
   };
 
-function listDishes() {
-	console.log("listDishes was called");
+function listRelevantDishes(dishesToParse,dishesToRemove) {
+  var index = 0;
+  var exists = false;
+  var outputArray = [];
 
-	dishes = document.getElementById('dishes_for_listing').
+  for (var i=0; i<dishesToParse.length - 1; i++) {
+    for (var j = 0; j<dishesToRemove.length - 1; j++) {
+      
+      if (dishesToParse[i] === dishesToRemove[j]) {
+        exists = true;
+      }
+    };
+
+    if (exists) {
+      exists = false;
+      continue;
+    }
+
+    outputArray[index] = dishesToParse[i];
+    index++;
+    exists = false;
+  }
+
+  return outputArray;
+
+}
+
+function listDishes() {
+
+	var dishesForParsing = document.getElementById('dishes_for_listing').
 		innerHTML.
 		replace(/\s+/g, ' ').
 		split(",");
+
+  var dishesBrought = document.getElementById('dishes_brought').
+    innerHTML.
+    replace(/\s+/g, ' ').
+    split(",");
+
+  var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
+
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
 		new_dishes[i] = (dishes[i] + "<br>");
 	}
-	document.getElementById('dishes_for_listing').innerHTML = "";
-	$("<div class = placeholder />").html(new_dishes).appendTo($("#dishes_for_listing"));
+
+  var dishesChild = $("#dishes_for_seeing");
+  var dishesParent = dishesChild.parent();
+  dishesChild.remove();
+
+
+	$("<p id = dishes_for_seeing />").html(new_dishes).appendTo(dishesParent);
 }
 
 function buttonifyDishes() {
-	console.log("Buttonify was called");
-
-	// dishes =$("#dishes_for_clicking").parent().html();
-	// 	//replace(/\s+/g, ' ').
-	// 	//split(",");
-
-	// console.log(dishes);
 	var contents = document.getElementById('dishes_to_list');
 
 	if (contents.style.display == 'block') {
 		return;
 	}
 
-	dishes = document.getElementById('dishes_for_clicking').
+	var dishesForParsing = document.getElementById('dishes_for_clicking').
 		innerHTML.
 		replace(/\s+/g, ' ').
 		split(",");
 
-	dishesBrought = document.getElementById('dishes_brought').
+	var dishesBrought = document.getElementById('dishes_brought').
 		innerHTML.
 		replace(/\s+/g, ' ').
 		split(",");
 
-	var index = 0;
-	var exists = false;
-	var new_dishes = [];
-	for (var i=0; i<dishes.length - 1; i++) {
-		for (var j = 0; j<dishesBrought.length - 1; j++) {
-			console.log("dishes = " + dishes[i]);
-			console.log("dishesBrouhgt = " + dishesBrought[j]);
+  var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
-			if (dishes[i] === dishesBrought[j]) {
-				exists = true;
-			}
-		};
+  var new_dishes = [];
+  for (var i=0; i<dishes.length; i++) {
+    new_dishes[i] = ("<label><input id=\"clickable_dishes[" + i + "]\" type=\"checkbox\">" + 
+      "<a id = name_dishes[" + i + "]>" + dishes[i] + "</a></label>");
+  };
 
-		if (exists) {
-			exists = false;
-			continue;
-		}
-
-		new_dishes[index] = ("<label><input id=\"clickable_dishes[" + i + "]\" type=\"checkbox\">" + 
-			"<a id = name_dishes[" + index + "]>" + dishes[i] + "</a></label>");
-		index++;
-		exists = false;
-	}
-	var dishesFC = $("#dishes_for_clicking");
-	var dishesParent = dishesFC.parent();
-	dishesFC.remove();
+	var dishesChild = $("#dishes_for_clicking");
+	var dishesParent = dishesChild.parent();
+	dishesChild.remove();
 	dishesParent.show();
 
 	if (new_dishes === []) {
-		$("<p id = dishes_for_clicking />").html("<a>No More Dishes to Bring!</a>").appendTo(dishesParent);
-	} else {
-  	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
-  }
+    new_dishes[0] = "<a>No More Dishes to Bring!</a>";
+	}
+
+  $("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
 
 }
 
