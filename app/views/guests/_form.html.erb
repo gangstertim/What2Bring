@@ -23,6 +23,16 @@
     <%= @event.dishes %>
   </p>
 </div>
+   
+<% if @event.cash? %>
+  <div class="field" id="how_much">
+      <label><input type="checkbox">
+        I'll chip in some cash
+      </label>
+      <%= @event.who %>
+      <%= @event.howmuch %>
+  </div>
+<% end %>
 
 <div class="field">
   <%= f.label :email %>
