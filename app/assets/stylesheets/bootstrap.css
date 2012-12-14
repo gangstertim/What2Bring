@@ -808,9 +808,9 @@ blockquote small {
   color: #999999;
 }
 
-/*blockquote small:before {
+blockquote small:before {
   content: '\2014 \00A0';
-}*/
+}
 
 blockquote.pull-right {
   float: right;
