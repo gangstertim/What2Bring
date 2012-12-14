@@ -6,7 +6,6 @@
   <ul>
     <% @event.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
-    BLJALJALJ
     <% end %>
   </ul>
 </div>
@@ -75,7 +74,7 @@
       <a onclick="addDish()"><strong>Add</strong></a>
     </div>
     <div class="control-group", hidden>
-      <%= f.text_field :dishes %>
+      <%= f.text_field :dishes  %>
     </div>
     <div class="control-group">
       <%= f.label "Would you like guests to chip in some cash?" %>
