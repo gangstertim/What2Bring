@@ -33,6 +33,17 @@ $(function addGuest() {
 		$(this).hide();
 	});
 
+	$("#verifyName").click(function (e) {
+		if ($("#guest_name").val().length == "") {
+			e.preventDefault();
+			if ($("#warning_name").length < 1) {
+				$("<p id = warning_name />").html("Name Required").insertBefore($("#guest_name"));
+			}
+		} else {
+			$("#warning_name").remove();
+		}
+
+	});
 });
 
 // $(function () {
@@ -51,6 +62,7 @@ function addDishWithKey(event) {
 
 function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
+	dish_text = dish_text.replace(/,/g, '');
 	var dish_final = document.getElementById("event_dishes").value += dish_text + ", ";
 	$("#event_dishes_temp").val("");
 	$("#event_dishes").parent().show();
@@ -147,9 +159,13 @@ function buttonifyDishes() {
 	dishesParent.show();
 
 	if (new_dishes.length < 1) {
-    dishesParent.remove();
+		$("#bringin_somethin").hide();
+		$("#suggested_amount").toggle('show');
+		new_dishes[0] = "No more items to bring";
+		$("<p />").html(new_dishes).appendTo($("#suggested_amount"));
+    	dishesParent.remove();
 	} else {
-    $("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
+    	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
   }
 
 }
@@ -192,6 +208,9 @@ var guestNames = document.getElementById('attending_names').
   console.log(guestNames);
 
   var output = [];
+  var fullEvent = [];
+  fullEvent[0] = "<p> Sorry! </p><br>";
+  fullEvent[1] = "<p> The Event is currently full </p><br>";
 
   var temp = document.getElementById('number_of_attendees').innerText;
   var guestsAllowed = parseInt(temp);
@@ -210,8 +229,9 @@ var guestNames = document.getElementById('attending_names').
     output = [];
 	}
 
-  	if (guestNames.length >= guestsAllowed) {
+  	if (guestNames.length/2 >= guestsAllowed) {
     	$("#new_guest").hide();
+    	$("<div />").html(fullEvent).appendTo($("#attendees"));
   	}
 
     //document.getElementById('names').innerHTML = "boobies";

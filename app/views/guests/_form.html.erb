@@ -22,7 +22,7 @@
   </div>
 
 <!-- <a onclick="buttonifyDishes()">I'm Bringing...</a><br> -->
-<button class="btn btn-block" type="button" onclick="buttonifyDishes()">I'll bring something</button>
+<button class="btn btn-block" id="bringin_somethin" type="button" onclick="buttonifyDishes()">I'll bring something</button>
 
 <div class="field" id="dishes_to_list", hidden>
   <p id = "dishes_for_clicking">
@@ -51,7 +51,7 @@
 
   <div class="actions" >
     <a onclick="addDishesToGuest()">
-      <%= f.submit "RSVP", class: "btn btn-block btn-primary"%>
+      <%= f.submit "RSVP", class: "btn btn-block btn-primary", id: "verifyName" %>
     </a>
   </div>
 
