@@ -111,3 +111,6 @@ function nameParser()
     //document.getElementById('names').innerHTML = "boobies";
 }
 
+function showMoney() {
+  $("#event_howmuch").parent().parent().toggle('show');
+};

@@ -75,9 +75,11 @@
     </div>
     <div class="control-group">
       <%= f.label "Can guests pay with cash?" %>
+       <a onclick = 'showMoney()'>
       <%= f.check_box :cash %>
-    </div>
-    <div class="control-group-cash">
+    </a>
+  </div>
+    <div class="control-group-cash", hidden>
       <%= f.label "How much?" %>
       <a>
         $ <%= f.text_field :howmuch %>
