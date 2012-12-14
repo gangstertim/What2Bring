@@ -12,14 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-// //= require_tree .
+//= require_tree .
 // $(function () {
 // 	// Executes on DOM ready
-// 	$('#email-label').tooltip('right');
-// 	// console.log("the function executed on DOM ready (whatever that means)");
-// 	// buttonifyDishes();
-// 	// listDishes();
-// 	// nameParser();
+// 	console.log("the function executed on DOM ready (whatever that means)");
+// 	buttonifyDishes();
+// 	listDishes();
+// 	nameParser();
 // });
 
 
@@ -80,9 +79,17 @@ function buttonifyDishes() {
 	// 	//split(",");
 
 	// console.log(dishes);
-	dishes = document.getElementById('dishes_for_clicking').innerHTML;
-	dishes = dishes.replace(/\s+/g, ' ');
-	dishes = dishes.split(",");
+	var contents = document.getElementById('dishes_to_list');
+
+	if (contents.style.display == 'block') {
+		return;
+	}
+
+	dishes = document.getElementById('dishes_for_clicking').
+		innerHTML.
+		replace(/\s+/g, ' ').
+		split(",");
+
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
 		new_dishes[i] = ("<a id=\"" + dishes[i] + "\" onclick=\"addDishToList(this.id)\">" + dishes[i] + "</a><br>");
