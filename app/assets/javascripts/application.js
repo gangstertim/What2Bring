@@ -100,7 +100,7 @@ function listDishes() {
   var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
 	var new_dishes = [];
-	for (var i=0; i<dishes.length; i++) {
+	for (var i=0; i<dishes.length - 1; i++) {
 		new_dishes[i] = (dishes[i] + "<br>");
 	}
 
@@ -108,8 +108,8 @@ function listDishes() {
   var dishesParent = dishesChild.parent();
   dishesChild.remove();
 
-  if (new_dishes === []) {
-
+  if (new_dishes.length < 1) {
+    dishesParent.parent().parent().remove();
   } else {
     $("<p id = dishes_for_seeing />").html(new_dishes).appendTo(dishesParent);
   }
@@ -145,8 +145,8 @@ function buttonifyDishes() {
 	dishesChild.remove();
 	dishesParent.show();
 
-	if (new_dishes === []) {
-
+	if (new_dishes.length < 1) {
+    dishesParent.remove();
 	} else {
     $("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
   }
