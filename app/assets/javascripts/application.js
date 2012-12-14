@@ -42,6 +42,12 @@ $(function addGuest() {
 
 // }));
 // });
+function addDishWithKey(event) {
+	if (event.keyCode == 13) {
+		event.preventDefault();
+		addDish();
+	}
+}
 
 function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
