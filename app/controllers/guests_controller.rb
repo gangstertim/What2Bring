@@ -71,7 +71,11 @@ class GuestsController < ApplicationController
     #@guest = Guest.find(params[:id])
     @guest = Guest.new(params[:guest])
     @guest.event = Event.find(params[:event_id])
-    pp @guest
+    
+    @event = Event.find(params[:event_id])
+    temp =  @event.dishes_temp
+    @event.dishes_temp = @event.dishes_temp + params[:guest][:dishes]
+    @event.save
 
     respond_to do |format|
       if @guest.save
