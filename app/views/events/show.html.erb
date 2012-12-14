@@ -21,36 +21,52 @@
 
   <div class="row">
     <div class="span5">
-        <a class="pull-left" href="#">
-          <img class="media-object" data-src="where.svg">
-        </a>
-        <div class="media-body">
-          <h4 class="media-heading">Where?</h4>
-          <%= @event.location %>
-        </div>
+      <a class="pull-left" href="#">
+        <embed src="/assets/where.svg" width="63" height="63" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" />
+      </a>
+      <div class="well">
+        <h4 class="media-heading">Where?</h4>
+        <%= @event.location %>
+      </div>
 
-        <p>
-          <b>What?</b>
-          <%= @event.description %>
-        </p>
+      <br>
 
-<<<<<<< HEAD
-        <p class = "hidden">
-          <b>How many guests could come?</b>
-          <%= @event.how_many_guests %>
-        </p>
-        <p>
-          <b>I can bring...</b>
-        </p>
-        <p id = "dishes_for_listing">
-          <%= @event.dishes %>
-        </p>
+      <a class="pull-left" href="#">
+        <embed src="/assets/clock.svg" width="57" height="57" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" />
+      </a>
+      <div class="well">
+        <h4 class="media-heading">When?</h4>
+        <%= @event.datec.strftime('%I : %M %p') %>
+      </div>
 
-        <b>Dishes Brought</b>
-        <p id = "dishes_brought">
-          <%= @event.dishes_temp %>
-        </p>
-=======
+      <br>
+
+      <a class="pull-left" href="#">
+        <embed src="/assets/question.svg" width="65" height="90" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+      </a>
+      <div class="well">
+        <h4 class="media-heading">What?</h4>
+        <%= @event.description %>
+      </div>
+
+      <br><br><br>
+
+      <p class = "hidden">
+        <b>How many guests could come?</b>
+        <%= @event.how_many_guests %>
+      </p>
+      <p>
+        <b>I can bring...</b>
+      </p>
+      <p id = "dishes_for_listing">
+        <%= @event.dishes %>
+      </p>
+
+      <b>Dishes Brought</b>
+      <p id = "dishes_brought">
+        <%= @event.dishes_temp %>
+      </p>
+
       <p class = "hidden">
         <b>How many guests could come?</b>
         <%= @event.how_many_guests %>
@@ -68,38 +84,36 @@
       <p id = "dishes_brought", hidden>
         <%= @event.dishes_temp %>
       </p>
->>>>>>> 7e17e614dbb29bff3bb108d1f362dce1e151cc9a
 
-
-        <% if @event.cash? %>
-        <p>
-          <b>How much?</b>
-          <%= @event.howmuch %>
-        </p>
-        <% end %>
-
-      </div> <!-- end of span5 -->
-      <div class = "span5">
-        <p>
-          <b> Who's coming? </b>
-        </p>
-        <p id="names">
-          <%= @guests_names %>
-        </p><p>
-
-        <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
+      <% if @event.cash? %>
+      <p>
+        <b>How much?</b>
+        <%= @event.howmuch %>
       </p>
-    </div> <!-- span5 -->
+      <% end %>
+
+    </div> <!-- end of span5 -->
     <div class = "span5">
-      <p id = 'rsvp'>
+      <p>
+        <b> Who's coming? </b>
       </p>
-    </div> <!-- span5 -->
-  </div> <!-- end of row -->
+      <p id="names">
+        <%= @guests_names %>
+      </p><p>
+
+      <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
+    </p>
+  </div> <!-- span5 -->
+  <div class = "span5">
+    <p id = 'rsvp'>
+    </p>
+  </div> <!-- span5 -->
+</div> <!-- end of row -->
 
 
 
 
-  <body onload="listDishes(), nameParser()">
+<body onload="listDishes(), nameParser()">
 
 
 
