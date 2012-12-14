@@ -29,12 +29,16 @@
   <%= f.label :email %>
   <%= f.text_field :email %>
 </div>
-<div class="hidden">
-    <!-- <%= f.label :event %><br />
-    <%= f.text_field :event, value: @event %> -->
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+<div class="field">
+  <%= f.label :dishes %>
+  <%= f.text_field :dishes %>
+</div>
+
+  <div class="actions" >
+    <a onclick="addDishesToGuest()">
+    <%= f.submit class: "btn btn-primary"%>
+  </a>
   </div>
 
   <% end %>
