@@ -1,5 +1,4 @@
 require File.expand_path('../boot', __FILE__)
-
 require 'rails/all'
 
 if defined?(Bundler)
@@ -66,6 +65,5 @@ module What2bring
         g.view_specs false
         g.helper_specs false
     end
-    
   end
 end
