@@ -4,6 +4,7 @@ class CreateGuests < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :dishes
+      t.boolean :bringing_cash
       t.belongs_to :event
 
       t.timestamps

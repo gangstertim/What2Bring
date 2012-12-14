@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(:version => 20121130212046) do
     t.string   "name"
     t.string   "email"
     t.string   "dishes"
+    t.boolean  "bringing_cash"
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "guests", ["event_id"], :name => "index_guests_on_event_id"
