@@ -60,6 +60,7 @@ function addDishWithKey(event) {
 
 function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
+	dish_text = dish_text.replace(/,/g, '')
 	var dish_final = document.getElementById("event_dishes").value += dish_text + ", ";
 	$("#event_dishes_temp").val("");
 	$("#event_dishes").parent().show();
