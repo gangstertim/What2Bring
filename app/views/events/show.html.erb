@@ -62,8 +62,8 @@
         </a>
 
         <div class = well>
-            <h4 class="media-heading">I can bring...</h4>
-            <span id = "dishes_for_seeing"></span>
+          <h4 class="media-heading">I can bring...</h4>
+          <span id = "dishes_for_seeing"></span>
         </div>
       </div>
       <p id = "dishes_for_listing", hidden>
@@ -77,12 +77,12 @@
       <% if @event.cash? %>
 
       <a class="pull-left" href="#">
-          <embed src="/assets/money.svg" width="60" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
-        </a>
+        <embed src="/assets/money.svg" width="65" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+      </a>
 
       <div class="well">
-        <b>How much?</b>
-        <%= @event.howmuch %>
+        <h4 class="media-heading">How much?</h4>
+        $<%= @event.howmuch %>
       </div>
       <% end %>
 
