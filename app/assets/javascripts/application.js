@@ -96,7 +96,7 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 
 }
 
-function listDishes() {
+window.onload=function listDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_listing').
 		innerHTML.
@@ -194,7 +194,7 @@ function addDishToList(clicked_id) {
 	console.log("the" + clicked_id + " was called");
 }
 
-function guestParser()
+window.onload=function guestParser()
 {
 var guestNames = document.getElementById('attending_names').
     innerHTML.
