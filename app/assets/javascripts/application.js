@@ -111,7 +111,7 @@ function listDishes() {
   var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
 	var new_dishes = [];
-	for (var i=0; i<dishes.length - 1; i++) {
+	for (var i=0; i<dishes.length; i++) {
 		new_dishes[i] = (dishes[i] + "<br>");
 	}
 
@@ -162,7 +162,7 @@ function buttonifyDishes() {
 		$("#bringin_somethin").hide();
 		$("#suggested_amount").toggle('show');
 		new_dishes[0] = "No more items to bring";
-		$("<p />").html(new_dishes).appendTo($("#suggested_amount"));
+		$("<p />").html(new_dishes).insertBefore($("#bringin_somethin"));
     	dishesParent.remove();
 	} else {
     	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
@@ -204,8 +204,11 @@ var guestNames = document.getElementById('attending_names').
     innerHTML.
     split("\"");
 
+   var guestCash = document.getElementById('attending_with_cash').
+   	innerHTML.
+   	match(/[true,false]*e/g);
 
-  console.log(guestNames);
+  console.log(Boolean(guestCash[5]));
 
   var output = [];
   var fullEvent = [];
@@ -214,16 +217,29 @@ var guestNames = document.getElementById('attending_names').
 
   var temp = document.getElementById('number_of_attendees').innerText;
   var guestsAllowed = parseInt(temp);
-
-  console.log(guestsAllowed);
+  temp = document.getElementById('how_much').innerHTML;
+  var cash = parseFloat(temp);
+  String.prototype.bool = function() {
+    return (/^true$/i).test(this);
+	};
 
 
 	for (var i=1; i<guestNames.length; i += 2)
 	{
 		  output[0] = ("<p>" + guestNames[i] + "</p>");
-    if (guestDishes[i].length >= 1) {
-      output[1] = ("<small> bringing " + guestDishes[i] + "</small>");
-    }
+
+    if ((guestDishes[i].length >= 1)){
+    	if (guestCash[i].bool()) {
+    		output[1] = ("<small> bringing " + guestDishes[i] + " & "+ cash + " dollars</small>");
+    	} else {
+    		output[1] = ("<small> bringing " + guestDishes[i] + "</small>");
+    	};
+    	
+    } else {
+	    if (guestCash[i].bool()) {
+	    	output[1] = ("<small> bringing " + cash + " dollars</small>");
+	    }
+	};
 
     $("<blockquote class = pull-right />").html(output).appendTo($("#attendees"));
     output = [];

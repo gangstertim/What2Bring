@@ -81,9 +81,14 @@
       </a>
 
       <div class="well">
-        <h4 class="media-heading">How much?</h4>
+        <h4 class="media-heading" >How much?</h4>
         $<%= @event.howmuch %>
       </div>
+
+      <a id ="how_much", hidden>
+        <%= @event.howmuch %>
+      </a>
+
       <% end %>
 
     </div> <!-- end of span5 -->
@@ -102,6 +107,11 @@
 
       <p id="number_of_attendees", hidden>
         <%= @event.how_many_guests %>
+
+      </p>
+
+      <p id="attending_with_cash", hidden>
+        <%= @guests_cash %>
 
       </p>
 
