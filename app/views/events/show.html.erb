@@ -34,6 +34,7 @@
           <%= @event.description %>
         </p>
 
+<<<<<<< HEAD
         <p class = "hidden">
           <b>How many guests could come?</b>
           <%= @event.how_many_guests %>
@@ -49,6 +50,25 @@
         <p id = "dishes_brought">
           <%= @event.dishes_temp %>
         </p>
+=======
+      <p class = "hidden">
+        <b>How many guests could come?</b>
+        <%= @event.how_many_guests %>
+      </p>
+      <p>
+        <b>I can bring...</b>
+      </p>
+      <p id = "dishes_for_seeing">
+      </p>
+
+      <p id = "dishes_for_listing", hidden>
+        <%= @event.dishes %>
+      </p>
+
+      <p id = "dishes_brought", hidden>
+        <%= @event.dishes_temp %>
+      </p>
+>>>>>>> 7e17e614dbb29bff3bb108d1f362dce1e151cc9a
 
 
         <% if @event.cash? %>
