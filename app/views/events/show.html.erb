@@ -58,15 +58,12 @@
 
       <div class = 'bottle_div'>
         <a class="pull-left" href="#">
-          <embed src="/assets/bottle.svg" width="65" height="65" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+          <embed src="/assets/bottle.svg" width="75" height="80" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
         </a>
 
         <div class = well>
-          <div class="media-body"?
             <h4 class="media-heading">I can bring...</h4>
-            <a id = "dishes_for_seeing">
-            </a>
-          </div>
+            <span id = "dishes_for_seeing"></span>
         </div>
       </div>
       <p id = "dishes_for_listing", hidden>
@@ -78,10 +75,15 @@
       </p>
 
       <% if @event.cash? %>
-      <p>
+
+      <a class="pull-left" href="#">
+          <embed src="/assets/money.svg" width="60" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+        </a>
+
+      <div class="well">
         <b>How much?</b>
         <%= @event.howmuch %>
-      </p>
+      </div>
       <% end %>
 
     </div> <!-- end of span5 -->

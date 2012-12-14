@@ -3,18 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-	width: 1170px;
+width: 1170px;
 }
 
 
 body {
-	padding-top: 60px;
-	padding-bottom: 40px;
+padding-top: 60px;
+padding-bottom: 40px;
 }
 
 input {
-	width:80%; 
-	box-sizing: border-box;
+width:80%; 
+box-sizing: border-box;
 }
 
 input[type=text] {height: 30px;}
@@ -23,62 +23,62 @@ input[type=email] {height: 30px;}
 input[type=date] {height: 30px}
 
 input, textarea, .uneditable-input {
-	margin-left: 0;
-	max-height: 100px;
-	width:80%;
+margin-left: 0;
+max-height: 100px;
+width:80%;
 }
 
 select {
-	width: 39%;
+width: 39%;
 }
 
 .container {
-	margin-right: 10%;
-	margin-left: 10%;
-	width:83%;
+margin-right: 10%;
+margin-left: 10%;
+width:83%;
 }
 
 .hero-unit {
-	background-color: #33BBFF;
-	min-width:350px;
-	min-height:225px;
-	padding-top: 40px;
+background-color: #33BBFF;
+min-width:350px;
+min-height:225px;
+padding-top: 40px;
 }
 
 .hero-container {
-	width: 50%;
-	float:left;
+width: 50%;
+float:left;
 }
 
 .control-group-cash a {
-	font-family:"Helvetica",Gadget,sans-serif;
-	font-size: 23px;
+font-family:"Helvetica",Gadget,sans-serif;
+font-size: 23px;
 }
 .picture {
-	width: 50%;
-	float:right;
+width: 50%;
+float:right;
 }
 
 .row {
-	max-height: 800px;
+max-height: 800px;
 }
 
 .span5 {
-	background-color:#FFFFFF;
-	padding-left: 0px;
-	max-width: 30%;
+background-color:#FFFFFF;
+padding-left: 0px;
+max-width: 30%;
 }
 
 
 .span5 p b {
-	font-size: 20px;
+font-size: 20px;
 }
 
 .span5 #dishes .placeholder p {
-	margin-top: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
+margin-top: 0px;
+padding-top: 0px;
+padding-bottom: 0px;
+margin-bottom: 0px;
 }
 
 .pull-left {
@@ -89,19 +89,11 @@ select {
 	/*margin-bottom: 10px;
 	margin-right: 10px;*/
 /*	display: block;
-align: center;*/
-display: block;
+	align: center;*/
+	display: block;
 }
 
 .bottle-div {
-	padding: 0 0 0 75px;
-	position: relative;
-}
-
-#svg_pic {
-	left: 0;
-	position: absolute;
-	top: 0;
 }
 
 .media-heading {
@@ -111,12 +103,20 @@ display: block;
 	padding-right: 75px;
 }
 
+#dishes_for_seeing {
+	width: 100px; 
+	margin: auto;
+	display:inline-block;
+}
+
+.svg_pic {width: 60px;float:left}
+
 .span5 p {
-	font-size: 15px;
-	padding-top: 15px;
+font-size: 15px;
+padding-top: 15px;
 }
 
 .btn {
-	display: block;
+display: block;
 }
 
