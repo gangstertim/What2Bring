@@ -12,46 +12,49 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label "Who are you?" %>
+  <%= f.text_field :name, :placeholder=>"The Cheshire Cat" %>
 </div>
 
-<a onclick="buttonifyDishes()">I'm Bringing...</a><br>
+  <div class="field">
+    <%= f.label "Your Email" %>
+    <%= f.text_field :email, :placeholder=>"BigSmiles@yahoo.com" %>
+  </div>
+
+<!-- <a onclick="buttonifyDishes()">I'm Bringing...</a><br> -->
+<button class="btn btn-small" type="button" onclick="buttonifyDishes()">I'll bring something</button>
 
 <div class="field" id="dishes_to_list", hidden>
   <p id = "dishes_for_clicking">
     <%= @event.dishes %>
   </p>
 </div>
-   
+
 <% if @event.cash? %>
-  <div class="field" id="how_much">
-      <%= f.check_box :bringing_cash %>
-      <a>
-        I'll chip in some cash
-      </a><br>
+<div class="field" id="how_much">
+  <a id="cash"> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
+    I'll chip in some cash</a>
+    <br>
 
-      <%= @event.who %>
-      <%= @event.howmuch %>
+    <p id="suggested_amount">
+      <%= @event.who %> suggested bringing
+      <%= number_to_currency(@event.howmuch) %>
+    </p>
+
   </div>
-<% end %>
+  <% end %>
 
-<div class="field">
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</div>
-
-<div class="field", hidden>
-  <%= f.label :dishes %>
-  <%= f.text_field :dishes %>
-</div>
+  <div class="field", hidden>
+    <%= f.label :dishes %>
+    <%= f.text_field :dishes %>
+  </div>
 
   <div class="actions" >
     <a onclick="addDishesToGuest()">
-    <%= f.submit class: "btn btn-primary"%>
-  </a>
+      <%= f.submit "RSVP", class: "btn btn-block btn-primary"%>
+    </a>
   </div>
 
   <% end %>
 
-<body onload="buttonifyDishes()">
+  <body onload="buttonifyDishes()">
