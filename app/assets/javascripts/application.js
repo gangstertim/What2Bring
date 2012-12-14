@@ -12,13 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+// //= require_tree .
 // $(function () {
 // 	// Executes on DOM ready
-// 	console.log("the function executed on DOM ready (whatever that means)");
-// 	buttonifyDishes();
-// 	listDishes();
-// 	nameParser();
+// 	$('#email-label').tooltip('right');
+// 	// console.log("the function executed on DOM ready (whatever that means)");
+// 	// buttonifyDishes();
+// 	// listDishes();
+// 	// nameParser();
 // });
 
 
