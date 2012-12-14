@@ -26,9 +26,11 @@
    
 <% if @event.cash? %>
   <div class="field" id="how_much">
-      <label><input type="checkbox">
+      <%= f.check_box :bringing_cash %>
+      <a>
         I'll chip in some cash
-      </label>
+      </a><br>
+
       <%= @event.who %>
       <%= @event.howmuch %>
   </div>
@@ -51,3 +53,5 @@
   </div>
 
   <% end %>
+
+<body onload="buttonifyDishes()">

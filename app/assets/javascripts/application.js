@@ -26,7 +26,6 @@ $(function addGuest() {
 	$("#new_guest").click(function (e) {
 		e.preventDefault();
 		var rsvp = document.getElementById('rsvp');
-		console.log("got clicked yob");
 		console.log(this);	
 		$('<p />').
 		load(this.href).
