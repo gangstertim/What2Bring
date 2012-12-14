@@ -96,19 +96,19 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 
 }
 
-window.onload=function listDishes() {
+function listDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_listing').
 		innerHTML.
 		replace(/\s+/g, ' ').
 		split(",");
 
-  var dishesBrought = document.getElementById('dishes_brought').
-    innerHTML.
-    replace(/\s+/g, ' ').
-    split(",");
+	var dishesBrought = document.getElementById('dishes_brought').
+		innerHTML.
+		replace(/\s+/g, ' ').
+		split(",");
 
-  var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
+	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
@@ -128,7 +128,6 @@ window.onload=function listDishes() {
 
 function buttonifyDishes() {
 	var contents = document.getElementById('dishes_to_list');
-
   $("#suggested_amount").toggle('show');
 
 	if (contents.style.display == 'block') {
@@ -194,7 +193,7 @@ function addDishToList(clicked_id) {
 	console.log("the" + clicked_id + " was called");
 }
 
-window.onload=function guestParser()
+function guestParser()
 {
 var guestNames = document.getElementById('attending_names').
     innerHTML.
