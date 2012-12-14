@@ -52,7 +52,6 @@ function addDishWithKey(event) {
 
 function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
-	dish_text = dish_text.replace(/,/g, '')
 	var dish_final = document.getElementById("event_dishes").value += dish_text + ", ";
 	$("#event_dishes_temp").val("");
 	$("#event_dishes").parent().show();
@@ -127,9 +126,7 @@ function buttonifyDishes() {
 	dishesParent.show();
 
 	if (new_dishes === []) {
-		$("<p id = dishes_for_clicking />").html(
-      "<a>No More Dishes to Bring!</a>"
-      ).appendTo(dishesParent);
+		$("<p id = dishes_for_clicking />").html("<a>No More Dishes to Bring!</a>").appendTo(dishesParent);
 	} else {
   	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
   }
