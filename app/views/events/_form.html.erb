@@ -67,7 +67,9 @@
   <div class="span5">
     <h2>What?</h2>
     <div class="control-group">
-      <%= f.text_field :dishes_temp, :placeholder=>"crumpets" %>
+      <a onkeypress='addDishWithKey(event)'>
+      <%= f.text_field :dishes_temp, :placeholder=>"crumpets"%>
+    </a>
       <a onclick="addDish()"><strong>Add</strong></a>
     </div>
     <div class="control-group", hidden>
