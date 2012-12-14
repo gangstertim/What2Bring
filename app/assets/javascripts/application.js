@@ -46,6 +46,7 @@ function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
 	var dish_final = document.getElementById("event_dishes").value += dish_text + ", ";
 	$("#event_dishes_temp").val("");
+	$("#event_dishes").parent().show();
 	//     dish_final.outputtext.value += dish_text;
   };
 

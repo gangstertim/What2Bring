@@ -17,10 +17,10 @@
   <h3>Let's get started:</h3>
   <form class="form">
     <div class="control-group">
-      <%= f.label "Name your event", 
+      <%= f.label "My event is called", 
       class: 'control-label' %>
       <div class="controls">
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :placeholder => "Tea Party" %>
       </div>
     </div>
   </div>
@@ -30,17 +30,17 @@
       <h2>Where & When?</h2>
       <div class="control-group">
         <div class="field">
-         <%= f.label "What Day?  What Time?" %><br />
-         <%= f.text_field :datec %>
+         <%= f.label "When?" %>
+         <%= f.text_field :datec, :placeholder =>"Next tuesday at noon" %>
        </div>
      </div>
      <div class="control-group">
-       <%= f.label :location %>
-       <%= f.text_field :location %>
+       <%= f.label "Where?" %>
+       <%= f.text_field :location, :placeholder=>"At the Mad Hatter's" %>
      </div>
      <div class="control-group">
-       <%= f.label "Event Description" %>
-       <%= f.text_area :description %>
+       <%= f.label "Description (Optional)" %>
+       <%= f.text_area :description, :placeholder=>"We're going to drink tea and eat crumpets– and the Ceshire Cat may make an appearance!" %>
      </div>
    </div>
 
@@ -48,17 +48,17 @@
     <h2>Who?</h2>
     <div class="control-group">
       <%= f.label "Who are you?" %>
-      <%= f.text_field :who %>
+      <%= f.text_field :who, :placeholder=>"Alice" %>
     </div>
     <div class="control-group">
-      <%= f.label "Your email address" %>
-      <%= f.text_field :email %>
+      <%= f.label "Your email" %>
+      <%= f.text_field :email, :placeholder=>"alice@wonderland.com" %>
     </div>
     <div class="control-group">
-      <%= f.label "How many guests can you host?" %>
-      <%= f.number_field :how_many_guests %>
+      <%= f.label "How many guests can you host? (optional)" %>
+      <%= f.number_field :how_many_guests, :placeholder=>"4" %>
     </div>
-    <div class="control-group">
+    <div class="control-group", hidden>
       <%= f.label "What are their emails? (optional)" %>
       <%= f.text_area :emails %>
     </div>
@@ -67,18 +67,21 @@
   <div class="span5">
     <h2>What?</h2>
     <div class="control-group">
+      <%= f.text_field :dishes_temp, :placeholder=>"crumpets" %>
       <a onclick="addDish()"><strong>Add</strong></a>
-      <%= f.text_field :dishes_temp %> 
-      <%= f.label :dishes, id: 'dishes_label' %>
+    </div>
+    <div class="control-group", hidden>
       <%= f.text_field :dishes %>
     </div>
     <div class="control-group">
       <%= f.label "Can guests pay with cash?" %>
       <%= f.check_box :cash %>
     </div>
-    <div class="control-group">
+    <div class="control-group-cash">
       <%= f.label "How much?" %>
-      <%= f.text_field :howmuch %>
+      <a>
+        $ <%= f.text_field :howmuch %>
+      </a>
     </div>
   </div>
 </div>
