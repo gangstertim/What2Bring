@@ -108,8 +108,11 @@ function listDishes() {
   var dishesParent = dishesChild.parent();
   dishesChild.remove();
 
+  if (new_dishes === []) {
 
-	$("<p id = dishes_for_seeing />").html(new_dishes).appendTo(dishesParent);
+  } else {
+    $("<p id = dishes_for_seeing />").html(new_dishes).appendTo(dishesParent);
+  }
 }
 
 function buttonifyDishes() {
@@ -143,10 +146,10 @@ function buttonifyDishes() {
 	dishesParent.show();
 
 	if (new_dishes === []) {
-    new_dishes[0] = "<a>No More Dishes to Bring!</a>";
-	}
 
-  $("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
+	} else {
+    $("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
+  }
 
 }
 
