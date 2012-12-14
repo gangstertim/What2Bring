@@ -176,21 +176,31 @@ function addDishToList(clicked_id) {
 	console.log("the" + clicked_id + " was called");
 }
 
-function nameParser()
+function guestParser()
 {
-	temp = document.getElementById('names').innerHTML;
-	temp = temp.split("\"");
-	var temp2 = [];
-	l=temp.length;
+	var guestNames = document.getElementById('attending_names').
+    innerHTML.
+    split("\"");
 
-	for (var i=0; i<l; i++)
+  var guestDishes = document.getElementById('attending_dishes').
+    innerHTML.
+    split("\"");
+
+
+  console.log(guestNames);
+
+  var output = [];
+
+	for (var i=1; i<guestNames.length; i += 2)
 	{
-		if (i%2 == 1) {
-			temp2[(i-1)/2] = (temp[i] + "<br>");
-		}
+		  output[0] = ("<p>" + guestNames[i] + "</p>");
+    if (guestDishes[i].length >= 1) {
+      output[1] = ("<small> bringing " + guestDishes[i] + "</small>");
+    }
+
+    $("<blockquote class = pull-right />").html(output).appendTo($("#attendees"));
+    output = [];
 	}
-	document.getElementById('names').innerHTML = "";
-	$("<div class = placeholder />").html(temp2).appendTo($("#names"));
     //document.getElementById('names').innerHTML = "boobies";
 }
 

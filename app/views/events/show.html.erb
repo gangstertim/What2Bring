@@ -88,12 +88,19 @@
 
     </div> <!-- end of span5 -->
     <div class = "span5">
-      <p>
-        <b> Who's coming? </b>
-      </p>
-      <p id="names">
+      <div>
+        <b> Attendees </b>
+      </div>
+      <div id="attendees">
+
+      </div>
+      <p id="attending_names", hidden>
         <%= @guests_names %>
-      </p><p>
+      </p>
+
+      <p id="attending_dishes", hidden>
+        <%= @guests_dishes %>
+      <p>
 
       <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
     </p>
@@ -107,7 +114,7 @@
 
 
 
-<body onload="listDishes(), nameParser()">
+<body onload="listDishes(), guestParser()">
 
 
 

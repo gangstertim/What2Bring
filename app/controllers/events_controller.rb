@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @guests_names = @event.guests.find(:all, :select => "name")
+    @guests_dishes = @event.guests.find(:all, :select => "dishes")
 
      p "*******************"
     pp @guests_names
