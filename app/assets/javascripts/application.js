@@ -209,8 +209,8 @@ var guestNames = document.getElementById('attending_names').
 
   var output = [];
   var fullEvent = [];
-  fullEvent[0] = "<p> Sorry! </p><br>";
-  fullEvent[1] = "<p> The Event is currently full </p><br>";
+  fullEvent[0] = "<p> Sorry! </p>";
+  fullEvent[1] = "<p> The Event is now full </p><br>";
 
   var temp = document.getElementById('number_of_attendees').innerText;
   var guestsAllowed = parseInt(temp);
