@@ -117,6 +117,8 @@ function listDishes() {
 function buttonifyDishes() {
 	var contents = document.getElementById('dishes_to_list');
 
+  $("#suggested_amount").toggle('show');
+
 	if (contents.style.display == 'block') {
 		return;
 	}
