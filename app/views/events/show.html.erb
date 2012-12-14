@@ -91,11 +91,18 @@
       <div>
         <b> Attendees </b>
       </div>
+      <div>
       <div id="attendees">
 
       </div>
+    </div>
       <p id="attending_names", hidden>
         <%= @guests_names %>
+      </p>
+
+      <p id="number_of_attendees", hidden>
+        <%= @event.how_many_guests %>
+
       </p>
 
       <p id="attending_dishes", hidden>

@@ -108,7 +108,7 @@ function listDishes() {
   dishesChild.remove();
 
   if (new_dishes.length < 1) {
-    dishesParent.parent().parent().remove();
+    dishesParent.parent().remove();
   } else {
     $("<p id = dishes_for_seeing />").html(new_dishes).appendTo(dishesParent);
   }
@@ -180,7 +180,7 @@ function addDishToList(clicked_id) {
 
 function guestParser()
 {
-	var guestNames = document.getElementById('attending_names').
+var guestNames = document.getElementById('attending_names').
     innerHTML.
     split("\"");
 
@@ -193,6 +193,12 @@ function guestParser()
 
   var output = [];
 
+  var temp = document.getElementById('number_of_attendees').innerText;
+  var guestsAllowed = parseInt(temp);
+
+  console.log(guestsAllowed);
+
+
 	for (var i=1; i<guestNames.length; i += 2)
 	{
 		  output[0] = ("<p>" + guestNames[i] + "</p>");
@@ -203,6 +209,11 @@ function guestParser()
     $("<blockquote class = pull-right />").html(output).appendTo($("#attendees"));
     output = [];
 	}
+
+  	if (guestNames.length >= guestsAllowed) {
+    	$("#new_guest").hide();
+  	}
+
     //document.getElementById('names').innerHTML = "boobies";
 }
 
