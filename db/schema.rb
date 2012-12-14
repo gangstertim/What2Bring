@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121130212046) do
     t.integer  "how_many_guests"
     t.text     "emails"
     t.text     "dishes"
+    t.text     "dishes_temp"
     t.boolean  "cash"
     t.decimal  "howmuch"
     t.integer  "event_id"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20121130212046) do
   create_table "guests", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "dishes"
     t.integer  "event_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

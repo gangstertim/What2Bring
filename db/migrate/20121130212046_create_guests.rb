@@ -3,6 +3,7 @@ class CreateGuests < ActiveRecord::Migration
     create_table :guests do |t|
       t.string :name
       t.string :email
+      t.string :dishes
       t.belongs_to :event
 
       t.timestamps

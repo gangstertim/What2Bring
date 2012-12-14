@@ -64,13 +64,21 @@ padding-left: 0px;
 max-width: 30%;
 }
 
+
 .span5 p b {
-  font-size: 20px;
+font-size: 20px;
+}
+
+.span5 #dishes .placeholder p {
+margin-top: 0px;
+padding-top: 0px;
+padding-bottom: 0px;
+margin-bottom: 0px;
 }
 
 .span5 p {
-  font-size: 15px;
-  padding-top: 15px;
+font-size: 15px;
+padding-top: 15px;
 }
 
 .btn {

@@ -1,29 +1,40 @@
 <%= form_for([@event, @guest]) do |f| %>
-  <% if @guest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+<% if @guest.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
 
-      <ul>
-      <% @guest.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @guest.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="hidden">
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<a onclick="buttonifyDishes()">I will bring food...</a><br>
+<a onclick="buttonifyDishes()">I will bring money...</a>
+
+<div class="field", hidden>
+  <p id = "dishes_for_clicking">
+    <%= @event.dishes %>
+  </p>
+</div>
+
+<div class="field">
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+<div class="hidden">
     <!-- <%= f.label :event %><br />
     <%= f.text_field :event, value: @event %> -->
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+
+  <% end %>

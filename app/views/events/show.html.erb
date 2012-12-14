@@ -35,21 +35,19 @@
         <b>How many guests could come?</b>
         <%= @event.how_many_guests %>
       </p>
-
       <p>
         <b>I can bring...</b>
+      </p>
+      <p id = "dishes_for_listing">
         <%= @event.dishes %>
       </p>
 
-      <p>
-        <b>Can I chip in some cash instead?</b>
-        <%= @event.cash %>
-      </p>
-
-      <p>
-        <b>How much?</b>
-        <%= @event.howmuch %>
-      </p>
+      <% if @event.cash? %>
+        <p>
+          <b>How much?</b>
+          <%= @event.howmuch %>
+        </p>
+      <% end %>
 
     </div> <!-- end of span5 -->
     <div class = "span5">
@@ -59,6 +57,7 @@
       <p id="names">
         <%= @guests_names %>
       </p><p>
+      
       <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
     </p>
   </div> <!-- span5 -->
@@ -71,9 +70,9 @@
 
 
 
+<body onload="listDishes(), nameParser()">
 
 
-<body onload="nameParser()">
 
 
 

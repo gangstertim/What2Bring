@@ -64,23 +64,23 @@
     </div>
   </div>
 
-    <div class="span5">
-        <h2>What?</h2>
-
-        <div class="control-group">
-            <%= f.label :dishes, id: 'dishes_label' %>
-            <%= f.text_area :dishes %>
-              <a onclick="addDish()">Add</a>
-        </div>
-        <div class="control-group">
-            <%= f.label "Can guests pay with cash?" %>
-            <%= f.check_box :cash %>
-        </div>
-        <div class="control-group">
-            <%= f.label "How much?" %>
-            <%= f.text_field :howmuch %>
-        </div>
-    </div>
+  <div class="span5">
+    <h2>What?</h2>
+    <div class="control-group">
+      <a onclick="addDish()"><strong>Add</strong></a>
+      <%= f.text_field :dishes_temp %> 
+      <%= f.label :dishes, id: 'dishes_label' %>
+      <%= f.text_field :dishes %>
+    </div>
+    <div class="control-group">
+      <%= f.label "Can guests pay with cash?" %>
+      <%= f.check_box :cash %>
+    </div>
+    <div class="control-group">
+      <%= f.label "How much?" %>
+      <%= f.text_field :howmuch %>
+    </div>
+  </div>
 </div>
 
 <row>

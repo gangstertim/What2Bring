@@ -2,7 +2,7 @@
 
 class Event < ActiveRecord::Base
 
-	attr_accessible :cash, :description, :dishes, :email, :emails, :how_many_guests, :howmuch, :location, :name, :datec, :who
+	attr_accessible :cash, :description, :dishes, :email, :emails, :how_many_guests, :howmuch, :location, :name, :datec, :who, :dishes_temp
 
 	has_many :guests#, :dependent => :destroy
 	# before_validation :parse_date

@@ -10,6 +10,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :how_many_guests
       t.text :emails
       t.text :dishes
+      t.text :dishes_temp
       t.boolean :cash
       t.decimal :howmuch
       t.integer :event_id
