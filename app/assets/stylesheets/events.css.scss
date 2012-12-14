@@ -7,7 +7,10 @@ width: 1170px;
 }
 
 #new_guest {
-
+display: block;
+width: 100%;
+padding-right: 0;
+padding-left: 0;
 display: inline-block;
 *display: inline;
 padding: 4px 14px;

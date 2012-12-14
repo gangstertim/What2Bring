@@ -32,7 +32,7 @@
 
 <% if @event.cash? %>
 <div class="field" id="how_much">
-  <a> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
+  <a id="cash"> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
     I'll chip in some cash</a>
     <br>
 
@@ -51,7 +51,7 @@
 
   <div class="actions" >
     <a onclick="addDishesToGuest()">
-      <%= f.submit "RSVP", class: "btn btn-large btn-primary"%>
+      <%= f.submit "RSVP", class: "btn btn-block btn-primary"%>
     </a>
   </div>
 
