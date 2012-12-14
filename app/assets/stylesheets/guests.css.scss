@@ -12,18 +12,24 @@
 
 #suggested_amount {
 	font-size: 15px;
+	text-align:left;
+	}
+
+#how_much {
+	text-align:left;
+	margin-left:20%;
 }
 
-.how_much #cash {
-	align:left;
-}
 button.btn {
 	margin-top:5px;
 	padding-top:5px;
 	margin-bottom: 15px;
 	padding-bottom:8px;
+	align:center;
+	padding-left:20%
 }
 
-#dishes_to_list {
-	align:left;
+#dishes_for_clicking {
+	margin-left:20%;
+	text-align:left;
 }
