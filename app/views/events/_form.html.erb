@@ -47,15 +47,15 @@
    <div class="span5">
     <h2>Who?</h2>
     <div class="control-group">
-      <%= f.label "Who are you?" %>
+      <%= f.label :who, "Who are you?" %>
       <%= f.text_field :who, :placeholder=>"Alice" %>
     </div>
     <div class="control-group">
-      <a href="#" rel="tooltip" title="We will send you an email to confirm your event" data-placement="left">Your email</a>
+       <%= f.label :email, :rel=>"tooltip", :title=>"We will send you an email to confirm your event", :data=>{:placement=>"left"}%>
       <%= f.text_field :email, :placeholder=>"alice@wonderland.com" %>
     </div>
     <div class="control-group">
-      <a href="#" rel="tooltip" title="When2Meet will only allow this many people to RSVP for this event" data-placement="left">How many guests can you host? (optional)</a>
+      <%= f.label :how_many_guests, :rel=>"tooltip",  :title=>"When2Meet will only allow this many people to RSVP for this event", :data=>{:placement=>"left"}%>
       <%= f.number_field :how_many_guests, :placeholder=>"4", :min=>"1" %>
     </div>
     <div class="control-group", hidden>
