@@ -130,7 +130,6 @@ function listDishes() {
 
 function buttonifyDishes() {
 	var contents = document.getElementById('dishes_to_list');
-	$("#suggested_amount").toggle('show');
 
 	if (contents.style.display == 'block') {
 		return;
@@ -159,7 +158,6 @@ function buttonifyDishes() {
 
 	if (new_dishes.length < 1) {
 		$("#bringin_somethin").hide();
-		$("#suggested_amount").toggle('show');
 		new_dishes[0] = "No more items to bring";
 		$("<p />").html(new_dishes).insertBefore($("#bringin_somethin"));
 		dishesParent.remove();
