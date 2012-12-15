@@ -84,8 +84,6 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 			if (dishesToParse[i] == dishesToRemove[j]) {
 				exists = true;
 			}
-			console.log()
-			console.log(dishesToParse[i] + " ?=" + dishesToRemove[j] + " " + exists);
 		};
 
 		if (exists) {
@@ -97,7 +95,6 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 		index++;
 		exists = false;
 	}
-	console.log(outputArray);
 	return outputArray;
 }
 
@@ -113,12 +110,7 @@ function listDishes() {
 	replace(/\s+/g, '').
 	split(",");
 
-	console.log(dishesForParsing);
-	console.log(dishesBrought);
-
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
-
-	console.log("out = " + dishesBrought);
 
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
@@ -192,8 +184,7 @@ function addDishesToGuest() {
 	}
 }
 
-function guestParser()
-{
+function guestParser() {
 	var guestNames = document.getElementById('attending_names').
 	innerHTML.
 	split("\"");
@@ -230,11 +221,13 @@ function guestParser()
 	{
 		output[0] = ("<p>" + guestNames[i] + "</p>");
 
+		dishToPrint = guestDishes[i].substring(0,guestDishes[i].length-2);
+
 		if ((guestDishes[i].length >= 1)){
 			if ((guestCash[i] != null) && guestCash[i].bool()) {
-				output[1] = ("<small> bringing " + guestDishes[i] + " & "+ cash + " dollars</small>");
+				output[1] = ("<small> bringing " + dishToPrint + " & "+ cash + " dollars</small>");
 			} else {
-				output[1] = ("<small> bringing " + guestDishes[i] + "</small>");
+				output[1] = ("<small> bringing " + dishToPrint + "</small>");
 			};
 
 		} else {
