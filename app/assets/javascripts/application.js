@@ -45,8 +45,8 @@ $(function addGuest() {
 
 	});
 
-	$("#jadams").click(function() {
-		this.parent().toggle('show');
+	$("#jadams").hover(function() {
+		this.toggle('show');
 	});
 });
 
