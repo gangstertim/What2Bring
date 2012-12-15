@@ -104,18 +104,29 @@ function listDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_listing').
 	innerHTML.
+	replace(/\s+/g,' ').
 	split(",");
 
 	var dishesBrought = document.getElementById('dishes_brought').
 	innerHTML.
+	replace(/\s+/g,' ').
 	split(",");
 
+	console.log("dishesForParsing = ");
+	console.log(dishesForParsing);
+	console.log();
+	console.log("dishes already Brought = ");
+	console.log(dishesBrought);
+
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
+
+	console.log("dishes = ");
+	console.log(dishes);
 
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
 		new_dishes[i] = (dishes[i] + "<br>");
-	}
+	};
 
 	var dishesChild = $("#dishes_for_seeing");
 	var dishesParent = dishesChild.parent();
@@ -125,7 +136,7 @@ function listDishes() {
 		dishesParent.parent().remove();
 	} else {
 		$("<p id = dishes_for_seeing />").html(new_dishes).appendTo(dishesParent);
-	}
+	};
 }
 
 function buttonifyDishes() {
@@ -137,10 +148,12 @@ function buttonifyDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_clicking').
 	innerHTML.
+	replace(/\s+/g,' ').
 	split(",");
 
 	var dishesBrought = document.getElementById('dishes_brought').
 	innerHTML.
+	replace(/\s+/g,' ').
 	split(",");
 
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
@@ -173,7 +186,10 @@ function addDishesToGuest() {
 
 		if (document.getElementById("clickable_dishes[" + i + "]").checked) {
 
-			dishName = document.getElementById('name_dishes[' + i + ']').innerText;
+			dishName = document.getElementById('name_dishes[' + i + ']').
+				innerHTML;
+
+			console.log(dishName);
 
 			document.getElementById("guest_dishes").value += dishName +  ",";
 		}
@@ -193,7 +209,7 @@ function guestParser() {
 	innerHTML.
 	match(/[true,false]*e/g);
 
-	var output = [];
+	
 	var fullEvent = [];
 	fullEvent[0] = "<p> Sorry! This event is full</p>";
 	// fullEvent[1] = "<p> The Event is now full </p><br>";
@@ -209,15 +225,17 @@ function guestParser() {
 	String.prototype.bool = function() {
 		if ((/^true$/i).test(this) || (/^false$/i).test(this)) {
 			return (/^true$/i).test(this);
-		} else return false;
+		} else {
+			return false;
+		}
 	};
 
-
+	var output = [];
 	for (var i=1; i<guestNames.length; i += 2)
 	{
 		output[0] = ("<p>" + guestNames[i] + "</p>");
 
-		dishToPrint = guestDishes[i].substring(0,guestDishes[i].length-2);
+		dishToPrint = guestDishes[i].substring(0,guestDishes[i].length-1);
 
 		if ((guestDishes[i].length >= 1)){
 			if ((guestCash[i] != null) && guestCash[i].bool()) {
