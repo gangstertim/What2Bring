@@ -24,8 +24,7 @@
 $(function addGuest() {
 	$("#new_guest").click(function (e) {
 		e.preventDefault();
-		var rsvp = document.getElementById('rsvp');
-		console.log(this);	
+		var rsvp = document.getElementById('rsvp');	
 		$('<p />').
 		load(this.href).
 		insertBefore(rsvp);
@@ -112,16 +111,16 @@ function listDishes() {
 	replace(/\s+/g,' ').
 	split(",");
 
-	console.log("dishesForParsing = ");
-	console.log(dishesForParsing);
-	console.log();
-	console.log("dishes already Brought = ");
-	console.log(dishesBrought);
+	// console.log("dishesForParsing = ");
+	// console.log(dishesForParsing);
+	// console.log();
+	// console.log("dishes already Brought = ");
+	// console.log(dishesBrought);
 
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
-	console.log("dishes = ");
-	console.log(dishes);
+	// console.log("dishes = ");
+	// console.log(dishes);
 
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
@@ -189,7 +188,7 @@ function addDishesToGuest() {
 			dishName = document.getElementById('name_dishes[' + i + ']').
 				innerHTML;
 
-			console.log(dishName);
+			// console.log(dishName);
 
 			document.getElementById("guest_dishes").value += dishName +  ",";
 		}
@@ -264,7 +263,6 @@ function guestParser() {
 			$("<h4 />").html("(" + numGuests + " of "  + guestsAllowed + ")").appendTo($("#guests_coming"));
 		} else {
 			$("<h4 />").html(numGuests).appendTo($("#guests_coming"));
-			console.log(numGuests);
 		}
 	}
 }
