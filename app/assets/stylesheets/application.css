@@ -16,3 +16,8 @@
 .modal-header {
 	background-color: #33BBFF;
 }
+
+h1 small {
+font-size: 24px;
+color: #FFFFFF;
+}
