@@ -6,12 +6,9 @@
 <div class = "hero-unit">
   <div class = "hero-container">
     <p>
-      <h4><%= @event.who %> is having a </h4>
-      <h1><%= @event.name %>!!!</h1>
-      <p><h2>Can you make it?</h2></p>
-      <p><h4>It's on <%= @event.datec.strftime('%d %b %Y') %> at 
-        <%= @event.datec.strftime('%I : %M %p') %></h4></p>
-      </p>
+      <p><%= @event.who %> is having a </p>
+      <h1><%= @event.name %>!!!<br><small>
+      Can you make it?</small></h1>
     </div> <!-- end hero container -->
     <div class = "picture">
       <img src="/assets/funevent.png" alt="it's gonna be awesome!">
@@ -44,8 +41,8 @@
       </a>
 
       <div class="well">
-        <h4 class="media-heading">What?</h4>
-        <%= @event.description %>
+        <h4 class="media-heading">What?</h4><br>
+        <span id = "description"><%= @event.description %></span>
       </div>
 
       <% end %>
