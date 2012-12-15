@@ -195,8 +195,8 @@ function guestParser() {
 
 	var output = [];
 	var fullEvent = [];
-	fullEvent[0] = "<p> Sorry! </p>";
-	fullEvent[1] = "<p> The Event is now full </p><br>";
+	fullEvent[0] = "<p> Sorry! This event is full</p>";
+	// fullEvent[1] = "<p> The Event is now full </p><br>";
 
 	var temp = document.getElementById('number_of_attendees').innerText;
 	var guestsAllowed = parseInt(temp);
@@ -236,14 +236,19 @@ function guestParser() {
 		output = [];
 	}
 
-	var numGuests = guestNames.length/2;
+	var numGuests = Math.floor(guestNames.length/2);
 	if (numGuests >= guestsAllowed) {
 		$("#new_guest").hide();
-		$("<div />").html(fullEvent).appendTo($("#attendees"));
+		$("<div />").html(fullEvent).appendTo($("#guests_coming"));
+	} else {
+		
+		if (!isNaN(guestsAllowed)) {
+			$("<h4 />").html("(" + numGuests + " of "  + guestsAllowed + ")").appendTo($("#guests_coming"));
+		} else {
+			$("<h4 />").html(numGuests).appendTo($("#guests_coming"));
+			console.log(numGuests);
+		}
 	}
-	document.getElementById("Guests Coming").value += numGuests;
-
-    //document.getElementById('names').innerHTML = "boobies";
 }
 
 function showMoney() {

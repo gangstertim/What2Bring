@@ -93,46 +93,49 @@
 
     </div> <!-- end of span5 -->
     <div class = "span5">
-      <div>
-        <h4> Attendees: 
-          <%= @event.how_many_guests %></h>
-      </div>
-      <div>
-      <div id="attendees">
+      <a class="pull-left" href="#">
+        <embed src="/assets/man.svg" width="55" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+      </a>
+      <div id="guests_coming">
+        <h4> Attendees: </h>
+        </div>
+        <div>
+          <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
+        </p>
+          <div id="attendees">
 
-      </div>
-    </div>
-      <p id="attending_names", hidden>
-        <%= @guests_names %>
-      </p>
+          </div>
+        </div>
+        <p>
 
-      <p id="number_of_attendees", hidden>
-        <%= @event.how_many_guests %>
+        <p id="attending_names", hidden>
+          <%= @guests_names %>
+        </p>
 
-      </p>
+        <p id="number_of_attendees", hidden>
+          <%= @event.how_many_guests %>
 
-      <p id="attending_with_cash", hidden>
-        <%= @guests_cash %>
+        </p>
 
-      </p>
+        <p id="attending_with_cash", hidden>
+          <%= @guests_cash %>
 
-      <p id="attending_dishes", hidden>
-        <%= @guests_dishes %>
-      <p>
+        </p>
 
-      <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
-    </p>
-  </div> <!-- span5 -->
-  <div class = "span5">
-    <p id = 'rsvp'>
-    </p>
-  </div> <!-- span5 -->
-</div> <!-- end of row -->
+        <p id="attending_dishes", hidden>
+          <%= @guests_dishes %>
 
+        </div> <!-- span5 -->
+        <div class = "span5">
+          <p id = 'rsvp'>
+          </p>
+        </div> <!-- span5 -->
+      </div> <!-- end of row -->
 
 
 
-<body onload="listDishes(), guestParser()">
+
+      <body onload="listDishes(), guestParser()">
 
 
 
