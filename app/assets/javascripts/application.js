@@ -35,7 +35,9 @@ $(function addGuest() {
 		if ($("#guest_name").val().length == "") {
 			e.preventDefault();
 			if ($("#warning_name").length < 1) {
-				$("<p id = warning_name />").html("Name Required").insertBefore($("#guest_name"));
+				$("<div class = 'alert alert-error' />").html("Name Required").insertBefore($("#guest_name"));
+				
+
 			}
 		} else {
 			$("#warning_name").remove();
@@ -190,7 +192,7 @@ function addDishesToGuest() {
 		if (document.getElementById("clickable_dishes[" + i + "]").checked) {
 
 			dishName = document.getElementById('name_dishes[' + i + ']').
-				innerHTML;
+			innerHTML;
 
 			// console.log(dishName);
 

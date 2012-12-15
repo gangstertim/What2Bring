@@ -51,44 +51,44 @@
       <%= f.text_field :who, :placeholder=>"Alice" %>
     </div>
     <div class="control-group">
-       <%= f.label :email, :rel=>"tooltip", :title=>"We will send you an email to confirm your event", :data=>{:placement=>"left"}%>
-      <%= f.text_field :email, :placeholder=>"alice@wonderland.com" %>
-    </div>
-    <div class="control-group">
-      <%= f.label :how_many_guests, :rel=>"tooltip",  :title=>"When2Meet will only allow this many people to RSVP for this event", :data=>{:placement=>"left"}%>
-      <%= f.number_field :how_many_guests, :placeholder=>"4", :min=>"1" %>
-    </div>
-    <div class="control-group", hidden>
-      <%= f.label "What are their emails? (optional)" %>
-      <%= f.text_area :emails %>
-    </div>
+     <%= f.label :email, :rel=>"tooltip", :title=>"We will send you an email to confirm your event", :data=>{:placement=>"left"}%>
+     <%= f.text_field :email, :placeholder=>"alice@wonderland.com" %>
+   </div>
+   <div class="control-group">
+    <%= f.label :how_many_guests, :rel=>"tooltip",  :title=>"When2Meet will only allow this many people to RSVP for this event", :data=>{:placement=>"left"}%>
+    <%= f.number_field :how_many_guests, :placeholder=>"4", :min=>"1" %>
   </div>
+  <div class="control-group", hidden>
+    <%= f.label "What are their emails? (optional)" %>
+    <%= f.text_area :emails %>
+  </div>
+</div>
 
-  <div class="span5">
-    <h2>What?</h2>
-    <div class="control-group">
-      <%= f.label "Would you like guests to bring anything?" %>
-      <a onkeypress='addDishWithKey(event)'>
+<div class="span5">
+  <h2>What?</h2>
+  <div class="control-group">
+    <%= f.label "Would you like guests to bring anything?" %>
+    <a onkeypress='addDishWithKey(event)'>
       <%= f.text_field :dishes_temp, :placeholder=>"crumpets"%>
     </a>
-      <a onclick="addDish()"><strong>Add</strong></a>
-    </div>
-    <div class="control-group", hidden>
-      <%= f.text_area :dishes %>
-    </div>
-    <div class="control-group">
-      <%= f.label "Would you like guests to chip in some cash?" %>
-       <a onclick = 'showMoney()'>
+    <a onclick="addDish()"><strong>Add</strong></a>
+  </div>
+  <div class="control-group", hidden>
+    <%= f.text_area :dishes %>
+  </div>
+  <div class="control-group">
+    <%= f.label "Would you like guests to chip in some cash?" %>
+    <a onclick = 'showMoney()'>
       <%= f.check_box :cash %>
     </a>
   </div>
-    <div class="control-group-cash", hidden>
-      <%= f.label "How much?" %>
-      <a>
-        $ <%= f.text_field :howmuch %>
-      </a>
-    </div>
+  <div class="control-group-cash", hidden>
+    <%= f.label "How much?" %>
+    <a>
+      $ <%= f.text_field :howmuch %>
+    </a>
   </div>
+</div>
 </div>
 
 <row>
@@ -103,7 +103,7 @@
 </form>
 
 <script type="text/javascript">
-    $("[rel=tooltip]").tooltip();
+$("[rel=tooltip]").tooltip();
 </script>
 
 
