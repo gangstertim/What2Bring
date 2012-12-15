@@ -19,9 +19,6 @@ class EventsController < ApplicationController
     @guests_dishes = @event.guests.find(:all, :select => "dishes")
     @guests_cash = @event.guests.find(:all, :select => "bringing_cash")
 
-     p "*******************"
-    pp @guests_names
-     p "*******************"
 
     respond_to do |format|
       format.html # show.html.erb
