@@ -12,12 +12,12 @@
 <% end %>
 
 <div class="field">
-  <%= f.label "Who are you?" %>
+  <%= f.label :name, "Who are you?" %>
   <%= f.text_field :name, :placeholder=>"The Cheshire Cat" %>
 </div>
 
   <div class="field">
-    <%= f.label "Your Email" %>
+    <%= f.label :email, "Your Email" %>
     <%= f.text_field :email, :placeholder=>"BigSmiles@yahoo.com" %>
   </div>
 
@@ -32,8 +32,8 @@
 
 <% if @event.cash? %>
 <div class="field" id="how_much">
-  <a id="cash"> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
-    I'll chip in some cash</a>
+  <label><a id="cash" for="guest[bringing_cash]"> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
+    I'll chip in some cash</a></label>
     <br>
 
     <p id="suggested_amount">
