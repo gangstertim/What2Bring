@@ -55,8 +55,8 @@
       <%= f.text_field :email, :placeholder=>"alice@wonderland.com" %>
     </div>
     <div class="control-group">
-      <a href="#" rel="tooltip" title="When2Meet will only allow this many people to RSVP for this event" data-placement="left">"How many guests can you host? (optional)"</a>
-      <%= f.number_field :how_many_guests, :placeholder=>"4" %>
+      <a href="#" rel="tooltip" title="When2Meet will only allow this many people to RSVP for this event" data-placement="left">How many guests can you host? (optional)</a>
+      <%= f.number_field :how_many_guests, :placeholder=>"4", :min=>"1" %>
     </div>
     <div class="control-group", hidden>
       <%= f.label "What are their emails? (optional)" %>

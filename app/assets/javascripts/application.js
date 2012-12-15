@@ -21,7 +21,6 @@
 // 	nameParser();
 // });
 
-
 $(function addGuest() {
 	$("#new_guest").click(function (e) {
 		e.preventDefault();
@@ -46,6 +45,9 @@ $(function addGuest() {
 	});
 });
 
+function getNumGuests() {
+	return numGuests;
+}
 // $(function () {
 // $("#new_guest".click(function (e) {
 // 	e.preventDefault();
@@ -236,10 +238,12 @@ function guestParser() {
 		output = [];
 	}
 
-	if (guestNames.length/2 >= guestsAllowed) {
+	var numGuests = guestNames.length/2;
+	if (numGuests >= guestsAllowed) {
 		$("#new_guest").hide();
 		$("<div />").html(fullEvent).appendTo($("#attendees"));
 	}
+	document.getElementById("Guests Coming").value += numGuests;
 
     //document.getElementById('names').innerHTML = "boobies";
 }
