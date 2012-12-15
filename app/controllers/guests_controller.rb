@@ -63,11 +63,7 @@ class GuestsController < ApplicationController
   # POST /guests
   # POST event/:event_id/guests.json
   def create
-    p "*******************"
-    pp params[:guest]
-
-    p "*******************"
-
+    
     #@guest = Guest.find(params[:id])
     @guest = Guest.new(params[:guest])
     @guest.event = Event.find(params[:event_id])

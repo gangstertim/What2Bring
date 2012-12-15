@@ -102,12 +102,10 @@ function listDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_listing').
 	innerHTML.
-	replace(/\s+/g, '').
 	split(",");
 
 	var dishesBrought = document.getElementById('dishes_brought').
 	innerHTML.
-	replace(/\s+/g, '').
 	split(",");
 
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
@@ -138,12 +136,10 @@ function buttonifyDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_clicking').
 	innerHTML.
-	replace(/\s+/g, '').
 	split(",");
 
 	var dishesBrought = document.getElementById('dishes_brought').
 	innerHTML.
-	replace(/\s+/g, '').
 	split(",");
 
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
@@ -174,12 +170,12 @@ function addDishesToGuest() {
 	var numDishes = document.getElementById('dishes_for_clicking').childElementCount;
 
 	for (var i=0; i<numDishes; i++) {
-		isChecked = document.getElementById("clickable_dishes[" + i + "]").checked;
 
-		if (isChecked) {
+		if (document.getElementById("clickable_dishes[" + i + "]").checked) {
+
 			dishName = document.getElementById('name_dishes[' + i + ']').innerText;
 
-			document.getElementById("guest_dishes").value += dishName +  ", ";
+			document.getElementById("guest_dishes").value += dishName +  ",";
 		}
 	}
 }
