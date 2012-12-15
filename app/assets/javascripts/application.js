@@ -78,12 +78,14 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 	var exists = false;
 	var outputArray = [];
 
-	for (var i=0; i<dishesToParse.length - 1; i++) {
-		for (var j = 0; j<dishesToRemove.length - 1; j++) {
+	for (var i=0; i < dishesToParse.length; i++) {
+		for (var j = 0; j<dishesToRemove.length; j++) {
 
-			if (dishesToParse[i] === dishesToRemove[j]) {
+			if (dishesToParse[i] == dishesToRemove[j]) {
 				exists = true;
 			}
+			console.log()
+			console.log(dishesToParse[i] + " ?=" + dishesToRemove[j] + " " + exists);
 		};
 
 		if (exists) {
@@ -95,24 +97,28 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 		index++;
 		exists = false;
 	}
-
+	console.log(outputArray);
 	return outputArray;
-
 }
 
 function listDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_listing').
 	innerHTML.
-	replace(/\s+/g, ' ').
+	replace(/\s+/g, '').
 	split(",");
 
 	var dishesBrought = document.getElementById('dishes_brought').
 	innerHTML.
-	replace(/\s+/g, ' ').
+	replace(/\s+/g, '').
 	split(",");
 
+	console.log(dishesForParsing);
+	console.log(dishesBrought);
+
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
+
+	console.log("out = " + dishesBrought);
 
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
@@ -140,12 +146,12 @@ function buttonifyDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_clicking').
 	innerHTML.
-	replace(/\s+/g, ' ').
+	replace(/\s+/g, '').
 	split(",");
 
 	var dishesBrought = document.getElementById('dishes_brought').
 	innerHTML.
-	replace(/\s+/g, ' ').
+	replace(/\s+/g, '').
 	split(",");
 
 	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
@@ -170,7 +176,6 @@ function buttonifyDishes() {
 	} else {
 		$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
 	}
-
 }
 
 function addDishesToGuest() {
@@ -182,19 +187,9 @@ function addDishesToGuest() {
 		if (isChecked) {
 			dishName = document.getElementById('name_dishes[' + i + ']').innerText;
 
-			document.getElementById("guest_dishes").value += dishName + ", ";
+			document.getElementById("guest_dishes").value += dishName +  ", ";
 		}
 	}
-	
-
-}
-
-function addDishToList(clicked_id) {
-	// document.getElementById('selected_dish')
-	var thing = clicked_id;
-	$("<div class = new_div />").html(thing).appendTo($("selected_dish"));
-	
-	console.log("the" + clicked_id + " was called");
 }
 
 function guestParser()
@@ -210,8 +205,6 @@ function guestParser()
 	var guestCash = document.getElementById('attending_with_cash').
 	innerHTML.
 	match(/[true,false]*e/g);
-
-	console.log(Boolean(guestCash[5]));
 
 	var output = [];
 	var fullEvent = [];
@@ -238,14 +231,14 @@ function guestParser()
 		output[0] = ("<p>" + guestNames[i] + "</p>");
 
 		if ((guestDishes[i].length >= 1)){
-			if (guestCash[i].bool()) {
+			if ((guestCash[i] != null) && guestCash[i].bool()) {
 				output[1] = ("<small> bringing " + guestDishes[i] + " & "+ cash + " dollars</small>");
 			} else {
 				output[1] = ("<small> bringing " + guestDishes[i] + "</small>");
 			};
 
 		} else {
-			if (guestCash[i].bool()) {
+			if ((guestCash[i] != null) && guestCash[i].bool()) {
 				output[1] = ("<small> bringing " + cash + " dollars</small>");
 			}
 		};
