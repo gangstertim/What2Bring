@@ -42,6 +42,10 @@ $(function addGuest() {
 		}
 
 	});
+
+	$("#jadams").click(function() {
+		this.parent().toggle('show');
+	});
 });
 
 function getNumGuests() {
