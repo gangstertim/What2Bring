@@ -79,7 +79,7 @@
 
       <div class="well">
         <h4 class="media-heading" >How much?</h4>
-        $<%= @event.howmuch %>
+        $<%= number_to_currency(@event.howmuch) %>
       </div>
 
       <a id ="how_much", hidden>
