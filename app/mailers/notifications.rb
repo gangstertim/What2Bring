@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  default from: "MillerSchaffer@What2Bring.com"
+  default from: "events@what2bring.org"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -8,8 +8,9 @@ class Notifications < ActionMailer::Base
   #
   def new_event(event)
     # @greeting = "Hi"
-    @greeting = "Hey there!"
-
+    @greeting = "Hey there!" + event.name
+    @event = event
+    
     mail to: event.email
   end
 end
