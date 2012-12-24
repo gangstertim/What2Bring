@@ -8,9 +8,9 @@ class Notifications < ActionMailer::Base
   #
   def new_event(event)
     # @greeting = "Hi"
-    @greeting = "Hey there!" + event.name
+    @greeting = "Hello " + event.who + ","
     @event = event
-    
+
     mail to: event.email
   end
 end
