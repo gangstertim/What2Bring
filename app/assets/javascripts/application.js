@@ -146,6 +146,8 @@ function buttonifyDishes() {
 
 	if (contents.style.display == 'block') {
 		return;
+	} else {
+		$("#bringin_somethin").hide();
 	}
 
 	var dishesForParsing = document.getElementById('dishes_for_clicking').

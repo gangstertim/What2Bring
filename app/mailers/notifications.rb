@@ -11,6 +11,6 @@ class Notifications < ActionMailer::Base
     @greeting = "Hello " + event.who + ","
     @event = event
 
-    mail to: event.email
+    mail( to: event.email, subject: event.name)
   end
 end

@@ -69,12 +69,12 @@
   <div class="control-group">
     <%= f.label "Would you like guests to bring anything?" %>
     <a onkeypress='addDishWithKey(event)'>
-      <%= f.text_field :dishes_temp, :placeholder=>"crumpets"%>
+      <%= f.text_field :dishes_temp, :placeholder=>"crumpets", :rel=>"tooltip", :title=>"press return to add the current item to the list", :trigger=>"focus", :data=>{:placement=>"left"}%>
     </a>
     <a onclick="addDish()"><strong>Add</strong></a>
   </div>
   <div class="control-group", hidden>
-    <%= f.text_area :dishes %>
+    <%= f.text_area :dishes, :readonly=>"" %>
   </div>
   <div class="control-group">
     <%= f.label "Would you like guests to chip in some cash?" %>
