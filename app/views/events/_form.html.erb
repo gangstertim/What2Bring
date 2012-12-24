@@ -56,7 +56,7 @@
    </div>
    <div class="control-group">
     <%= f.label :how_many_guests, :rel=>"tooltip",  :title=>"When2Meet will only allow this many people to RSVP for this event", :data=>{:placement=>"left"}%>
-    <%= f.number_field :how_many_guests, :placeholder=>"4", :min=>"1" %>
+    <%= f.number_field :how_many_guests, :min=>"1" %>
   </div>
   <div class="control-group", hidden>
     <%= f.label "What are their emails? (optional)" %>
