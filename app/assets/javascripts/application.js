@@ -201,6 +201,7 @@ function addDishesToGuest() {
 }
 
 function guestParser() {
+	share();
 	var guestNames = document.getElementById('attending_names').
 	innerHTML.
 	split("\"");
@@ -269,6 +270,12 @@ function guestParser() {
 		} else {
 			$("<h4 />").html(numGuests).appendTo($("#guests_coming"));
 		}
+	}
+}
+
+function share() {
+	if (document.getElementById("notice").innerHTML == "Event was successfully created.") {
+		$("#share").show();
 	}
 }
 

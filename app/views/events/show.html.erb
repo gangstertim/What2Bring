@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="well" id="share", hidden>
+  <h4>Share!</h4>
+  <p>To invite people to this event, share this link via 
+    <%= link_to "email", @email_link , class: "btn", target: "_blank"%>
+     or direct them to <%= event_url(@event) %>.
+   </p>
+</div>
 
 
 

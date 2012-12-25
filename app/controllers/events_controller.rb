@@ -19,6 +19,11 @@ class EventsController < ApplicationController
     @guests_dishes = @event.guests.find(:all, :select => "dishes")
     @guests_cash = @event.guests.find(:all, :select => "bringing_cash")
 
+    @email_link = "mailto:?subject= " + @event.name + 
+      "&body=Hey All,%0A%0AYour invited to " + @event.name + 
+      ". I wan't to know who can make it.%0A%0APlease visit " + event_url(@event) +
+      " to let me if you're coming and what you can pitch in.%0A%0AThanks,%0A" + 
+      @event.who
 
     respond_to do |format|
       format.html # show.html.erb
@@ -85,7 +90,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'Event was successfully updated.', share: 'sharing_time' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
