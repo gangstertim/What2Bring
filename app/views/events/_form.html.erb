@@ -11,89 +11,87 @@
 </div>
 <% end %>
 
+
 <div class="hero-unit">
   <h1>What2Bring</h1>
   <p>You already know when it's happening.  Now, it's only a question of who's coming and what they're bringing.</p>
   <h3>Let's get started:</h3>
-  <form class="form">
-    <div class="control-group">
+  <div class="control-group">
       <%= f.label :name, "My event is called", class: 'control-label' %>
       <%= f.text_field :name, :placeholder => "Alice's Tea Party" %>
-    </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="span5">
-      <h2>Where & When?</h2>
-      <div class="control-group">
-        <div class="field">
-         <%= f.label :datec, "When?" %>
-         <%= f.text_field :datec, :placeholder =>"Next tuesday at noon" %>
-       </div>
-     </div>
-     <div class="control-group">
-       <%= f.label :location, "Where?" %>
-       <%= f.text_field :location, :placeholder=>"At the Mad Hatter's" %>
-     </div>
-     <div class="control-group">
-       <%= f.label :description, "Description (Optional)" %>
-       <%= f.text_area :description, :placeholder=>"We're going to drink tea and eat crumpets– and the Cheshire Cat may make an appearance!" %>
+<div class="row">
+  <div class="span4">
+    <h2>Where & When?</h2>
+    <div class="control-group">
+      <div class="field">
+       <%= f.label :datec, "When?" %>
+       <%= f.text_field :datec, placeholder: "Next tuesday at noon" %>
      </div>
    </div>
+   <div class="control-group">
+     <%= f.label :location, "Where?" %>
+     <%= f.text_field :location, placeholder: "At the Mad Hatter's" %>
+   </div>
+   <div class="control-group">
+     <%= f.label :description, "Description (Optional)" %>
+     <%= f.text_area :description, rows: "4", placeholder: "We're going to drink tea and eat crumpets– and the Cheshire Cat may make an appearance!" %>
+   </div>
+  </div>
 
-   <div class="span5">
+  <div class="span4">
     <h2>Who?</h2>
     <div class="control-group">
       <%= f.label :who, "Who are you?" %>
-      <%= f.text_field :who, :placeholder=>"Alice" %>
+      <%= f.text_field :who, placeholder: "Alice" %>
     </div>
     <div class="control-group">
-     <%= f.label :email, :rel=>"tooltip", :title=>"We will send you an email to confirm your event", :data=>{:placement=>"left"}%>
-     <%= f.text_field :email, :placeholder=>"alice@wonderland.com" %>
+     <%= f.label :email, rel: "tooltip", title: "We will send you an email to confirm your event", data:{placement: "left"}%>
+     <%= f.text_field :email, placeholder: "alice@wonderland.com" %>
    </div>
    <div class="control-group">
     <%= f.label :how_many_guests, :rel=>"tooltip",  :title=>"When2Meet will only allow this many people to RSVP for this event", :data=>{:placement=>"left"}%>
     <%= f.number_field :how_many_guests, :min=>"1" %>
+    </div>
+    <div class="control-group", hidden>
+      <%= f.label "What are their emails? (optional)" %>
+      <%= f.text_area :emails %>
+    </div>
   </div>
-  <div class="control-group", hidden>
-    <%= f.label "What are their emails? (optional)" %>
-    <%= f.text_area :emails %>
+
+  <div class="span4">
+    <h2>What?</h2>
+    <div class="control-group">
+      <%= f.label :dishes_temp, "Would you like guests to bring anything?" %>
+      <div class="input-append" onkeypress='addDishWithKey(event)'>
+        <%= f.text_field :dishes_temp, placeholder: "crumpets", rel: "tooltip", title: "press return to add the current item to the list", trigger: "focus", data:{placement: "left"}%>
+        <button class="btn" type="button" onclick="addDish()">Add</button>
+      </div>
+    </div>
+    <div class="control-group", hidden>
+      <%= f.text_area :dishes, readonly: "" %>
+    </div>
+    <div class="control-group">
+      <%= f.label :cash, "Would you like guests to chip in some cash?" %>
+      <a onclick = 'showMoney()'>
+        <%= f.check_box :cash %>
+      </a>
+    </div>
+    <div class="control-group", hidden>
+      <%= f.label :howmuch, "How much?" %>
+      <div class="input-prepend">
+        <span class="add-on">$</span>
+        <%= f.text_field :howmuch , class: "span2" %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="span5">
-  <h2>What?</h2>
-  <div class="control-group">
-    <%= f.label "Would you like guests to bring anything?" %>
-    <div class="input-append" onkeypress='addDishWithKey(event)'>
-      <%= f.text_field :dishes_temp, placeholder: "crumpets", rel: "tooltip", title: "press return to add the current item to the list", trigger: "focus", data:{placement: "left"}%>
-      <button class="btn" type="button" onclick="addDish()">Add</button>
-    </div>
-  </div>
-  <div class="control-group", hidden>
-    <%= f.text_area :dishes, :readonly=>"" %>
-  </div>
-  <div class="control-group">
-    <%= f.label :cash, "Would you like guests to chip in some cash?" %>
-    <a onclick = 'showMoney()'>
-      <%= f.check_box :cash %>
-    </a>
-  </div>
-  <div class="control-group", hidden>
-    <%= f.label :howmuch, "How much?" %>
-    <div class="input-prepend">
-      <span class="add-on">$</span>
-      <%= f.text_field :howmuch , class: "span2" %>
-    </div>
-  </div>
-</div>
-</div>
-
-<row>
-  <div class="form-actions">
+<div class="form-actions">
     <%= f.submit class: "btn btn-primary", id: "verifyAttrs" %>
-  </div>
-</row>
+</div>
 
 </form>
 

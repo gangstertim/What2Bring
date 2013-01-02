@@ -34,14 +34,18 @@ $(function addGuest() {
 
 $(function () {
 	$("#verifyName").click(function (e) {
-		if ($("#guest_name").val().length == "") {
+		var guestName = $("#guest_name");
+		if (guestName.val().length < 1) {
 			e.preventDefault();
-			if ($("#warning_name").length < 1) {
-				$("<div class = 'alert alert-error' />").html("Name Required").insertBefore($("#guest_name"));
-
+			if (guestName.parent().attr("class") != "control-group error") {
+				guestName.parent().attr("class","control-group error");
+				$("<span class = 'help-inline' />").html("Required").insertAfter(guestName);
 			}
 		} else {
-			$("#warning_name").remove();
+			if (guestName.parent().attr("class") != "control-group error") {
+				guestName.parent().attr("class","control-group");
+				guestName.next().remove();
+			}
 		}
 
 	});
@@ -61,7 +65,7 @@ $(function () {
 				e.preventDefault();
 				if (obj[i].parent().attr("class") != "control-group error") {
 					obj[i].parent().attr("class","control-group error");
-					$("<span class = 'help-inline' />").html("Sorry! This can't be blank").insertAfter(obj[i]);
+					$("<span class = 'help-inline' />").html("Required").insertAfter(obj[i]);
 				}
 			} else {
 				if (obj[i].parent().attr("class") == "control-group error") {
@@ -70,8 +74,6 @@ $(function () {
 				}
 			}
 		}
-		
-
 	});
 });
 
@@ -95,7 +97,7 @@ function addDishWithKey(event) {
 function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
 	if (dish_text == "") return;
-	
+
 	dish_text = dish_text.replace(/,/g, '-');
 	if ($("#event_dishes").val().length < 1) {
 		var dish_final = document.getElementById("event_dishes").value += dish_text;

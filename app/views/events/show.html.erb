@@ -16,130 +16,128 @@
       <p><%= @event.who %> is having a </p>
       <h1><%= @event.name %>!!!<br><small>
       Can you make it?</small></h1>
-    </div> <!-- end hero container -->
-    <div class = "picture">
-      <img src="/assets/funevent.png" alt="it's gonna be awesome!">
+  </div> <!-- end hero container -->
+  <div class = "picture">
+    <img src="/assets/funevent.png" alt="it's gonna be awesome!">
+  </div>  <!-- end picture -->
+</div> <!-- end hero unit -->
 
-    </div>  <!-- end picture -->
-  </div> <!-- end hero unit -->
+<div class="row">
+  <div class="span4">
+    <a class="pull-left">
+      <embed src="/assets/where.svg" width="63" height="63" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" />
+    </a>
+    <div class="well">
+      <h4 class="media-heading">Where?</h4>
+      <%= @event.location %>
+    </div>
 
-  <div class="row">
-    <div class="span5">
+    <a class="pull-left">
+      <embed src="/assets/clock.svg" width="57" height="57" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" />
+    </a>
+    <div class="well">
+      <h4 class="media-heading">When?</h4>
+      <%= @event.datec.strftime('%d %b %Y') %> at <%= @event.datec.strftime('%I : %M %p') %>
+    </div>
+
+    <% if @event.description != "" %>
+    
+    <a class="pull-left">
+      <embed src="/assets/question.svg" width="65" height="65" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+    </a>
+
+    <div class="well">
+      <h4 class="media-heading">What?</h4><br>
+      <span id = "description"><%= @event.description %></span>
+    </div>
+
+    <% end %>
+
+    <p class = "hidden">
+      <b>How many guests could come?</b>
+      <%= @event.how_many_guests %>
+    </p>
+
+
+    <div class = 'bottle_div'>
       <a class="pull-left">
-        <embed src="/assets/where.svg" width="63" height="63" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" />
-      </a>
-      <div class="well">
-        <h4 class="media-heading">Where?</h4>
-        <%= @event.location %>
-      </div>
-
-      <a class="pull-left">
-        <embed src="/assets/clock.svg" width="57" height="57" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" />
-      </a>
-      <div class="well">
-        <h4 class="media-heading">When?</h4>
-        <%= @event.datec.strftime('%d %b %Y') %> at <%= @event.datec.strftime('%I : %M %p') %>
-      </div>
-
-      <% if @event.description != "" %>
-      
-      <a class="pull-left">
-        <embed src="/assets/question.svg" width="65" height="65" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+        <embed src="/assets/bottle.svg" width="75" height="80" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
       </a>
 
-      <div class="well">
-        <h4 class="media-heading">What?</h4><br>
-        <span id = "description"><%= @event.description %></span>
+      <div class = well>
+        <h4 class="media-heading">I can bring...</h4>
+        <span id = "dishes_for_seeing"></span>
       </div>
+    </div>
+    <p id = "dishes_for_listing", hidden>
+      <%= @event.dishes %>
+    </p>
 
-      <% end %>
+    <p id = "dishes_brought", hidden>
+      <%= @event.dishes_temp %>
+    </p>
 
-      <p class = "hidden">
-        <b>How many guests could come?</b>
+    <% if @event.cash? %>
+
+    <a class="pull-left">
+      <embed src="/assets/money.svg" width="65" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+    </a>
+
+    <div class="well">
+      <h4 class="media-heading" >How much?</h4>
+      <%= number_to_currency(@event.howmuch) %>
+    </div>
+
+    <a id ="how_much", hidden>
+      <%= @event.howmuch %>
+    </a>
+
+    <% end %>
+
+  </div> <!-- end of span5 -->
+  <div class = "span4">
+    <a class="pull-left">
+      <embed src="/assets/man.svg" width="55" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
+    </a>
+    <div id="guests_coming">
+      <h4> Attendees: </h>
+      </div>
+      <div>
+        <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
+      </p>
+        <div id="attendees">
+
+        </div>
+      </div>
+      <p>
+
+      <p id="attending_names", hidden>
+        <%= @guests_names %>
+      </p>
+
+      <p id="number_of_attendees", hidden>
         <%= @event.how_many_guests %>
+
       </p>
 
+      <p id="attending_with_cash", hidden>
+        <%= @guests_cash %>
 
-      <div class = 'bottle_div'>
-        <a class="pull-left">
-          <embed src="/assets/bottle.svg" width="75" height="80" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
-        </a>
-
-        <div class = well>
-          <h4 class="media-heading">I can bring...</h4>
-          <span id = "dishes_for_seeing"></span>
-        </div>
-      </div>
-      <p id = "dishes_for_listing", hidden>
-        <%= @event.dishes %>
       </p>
 
-      <p id = "dishes_brought", hidden>
-        <%= @event.dishes_temp %>
-      </p>
+      <p id="attending_dishes", hidden>
+        <%= @guests_dishes %>
+  </div> <!-- span5 -->
 
-      <% if @event.cash? %>
-
-      <a class="pull-left">
-        <embed src="/assets/money.svg" width="65" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
-      </a>
-
-      <div class="well">
-        <h4 class="media-heading" >How much?</h4>
-        <%= number_to_currency(@event.howmuch) %>
-      </div>
-
-      <a id ="how_much", hidden>
-        <%= @event.howmuch %>
-      </a>
-
-      <% end %>
-
-    </div> <!-- end of span5 -->
-    <div class = "span5">
-      <a class="pull-left">
-        <embed src="/assets/man.svg" width="55" height="60" type="image/svg+xml" codebase="http://www.adobe.com/svg/viewer/install" class='svg_pic' />
-      </a>
-      <div id="guests_coming">
-        <h4> Attendees: </h>
-        </div>
-        <div>
-          <%= link_to 'Get me on this list!', new_event_guest_path( @event ), id: 'new_guest' %>
-        </p>
-          <div id="attendees">
-
-          </div>
-        </div>
-        <p>
-
-        <p id="attending_names", hidden>
-          <%= @guests_names %>
-        </p>
-
-        <p id="number_of_attendees", hidden>
-          <%= @event.how_many_guests %>
-
-        </p>
-
-        <p id="attending_with_cash", hidden>
-          <%= @guests_cash %>
-
-        </p>
-
-        <p id="attending_dishes", hidden>
-          <%= @guests_dishes %>
-
-        </div> <!-- span5 -->
-        <div class = "span5">
-          <p id = 'rsvp'>
-          </p>
-        </div> <!-- span5 -->
-      </div> <!-- end of row -->
+  <div class = "span4">
+    <p id = 'rsvp'>
+    </p>
+  </div> <!-- span5 -->
+</div> <!-- end of row -->
 
 
 
-
-      <body onload="listDishes(), guestParser()">
+<body onload="listDishes(), guestParser()">
 
 
 
