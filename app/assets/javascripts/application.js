@@ -30,13 +30,14 @@ $(function addGuest() {
 		insertBefore(rsvp);
 		$(this).hide();
 	});
+});
 
+$(function () {
 	$("#verifyName").click(function (e) {
 		if ($("#guest_name").val().length == "") {
 			e.preventDefault();
 			if ($("#warning_name").length < 1) {
 				$("<div class = 'alert alert-error' />").html("Name Required").insertBefore($("#guest_name"));
-				
 
 			}
 		} else {
@@ -44,7 +45,34 @@ $(function addGuest() {
 		}
 
 	});
+});
 
+$(function () {
+	$("#verifyAttrs").click(function (e) {
+
+		var obj = new Array();
+		obj[0] = $("#event_name");
+		obj[1] = $("#event_datec");
+		obj[2] = $("#event_location");
+		obj[3] = $("#event_email");
+
+		for (var i=0; i < 4; i++) {
+			if (obj[i].val().length < 1) {
+				e.preventDefault();
+				if (obj[i].parent().attr("class") != "control-group error") {
+					obj[i].parent().attr("class","control-group error");
+					$("<span class = 'help-inline' />").html("Sorry! This can't be blank").insertAfter(obj[i]);
+				}
+			} else {
+				if (obj[i].parent().attr("class") == "control-group error") {
+					obj[i].parent().attr("class","control-group");
+					obj[i].next().remove();
+				}
+			}
+		}
+		
+
+	});
 });
 
 function getNumGuests() {
@@ -66,7 +94,9 @@ function addDishWithKey(event) {
 
 function addDish() {
 	var dish_text = $("#event_dishes_temp").val();
-	dish_text = dish_text.replace(/,/g, '');
+	if (dish_text == "") return;
+	
+	dish_text = dish_text.replace(/,/g, '-');
 	if ($("#event_dishes").val().length < 1) {
 		var dish_final = document.getElementById("event_dishes").value += dish_text;
 	} else {

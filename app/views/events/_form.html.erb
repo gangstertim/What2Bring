@@ -17,11 +17,8 @@
   <h3>Let's get started:</h3>
   <form class="form">
     <div class="control-group">
-      <%= f.label "My event is called", 
-      class: 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :placeholder => "Alice's Tea Party" %>
-      </div>
+      <%= f.label :name, "My event is called", class: 'control-label' %>
+      <%= f.text_field :name, :placeholder => "Alice's Tea Party" %>
     </div>
   </div>
 
@@ -30,17 +27,17 @@
       <h2>Where & When?</h2>
       <div class="control-group">
         <div class="field">
-         <%= f.label "When?" %>
+         <%= f.label :datec, "When?" %>
          <%= f.text_field :datec, :placeholder =>"Next tuesday at noon" %>
        </div>
      </div>
      <div class="control-group">
-       <%= f.label "Where?" %>
+       <%= f.label :location, "Where?" %>
        <%= f.text_field :location, :placeholder=>"At the Mad Hatter's" %>
      </div>
      <div class="control-group">
-       <%= f.label "Description (Optional)" %>
-       <%= f.text_area :description, :placeholder=>"We're going to drink tea and eat crumpets– and the Ceshire Cat may make an appearance!" %>
+       <%= f.label :description, "Description (Optional)" %>
+       <%= f.text_area :description, :placeholder=>"We're going to drink tea and eat crumpets– and the Cheshire Cat may make an appearance!" %>
      </div>
    </div>
 
@@ -68,32 +65,33 @@
   <h2>What?</h2>
   <div class="control-group">
     <%= f.label "Would you like guests to bring anything?" %>
-    <a onkeypress='addDishWithKey(event)'>
-      <%= f.text_field :dishes_temp, :placeholder=>"crumpets", :rel=>"tooltip", :title=>"press return to add the current item to the list", :trigger=>"focus", :data=>{:placement=>"left"}%>
-    </a>
-    <a onclick="addDish()"><strong>Add</strong></a>
+    <div class="input-append" onkeypress='addDishWithKey(event)'>
+      <%= f.text_field :dishes_temp, placeholder: "crumpets", rel: "tooltip", title: "press return to add the current item to the list", trigger: "focus", data:{placement: "left"}%>
+      <button class="btn" type="button" onclick="addDish()">Add</button>
+    </div>
   </div>
   <div class="control-group", hidden>
     <%= f.text_area :dishes, :readonly=>"" %>
   </div>
   <div class="control-group">
-    <%= f.label "Would you like guests to chip in some cash?" %>
+    <%= f.label :cash, "Would you like guests to chip in some cash?" %>
     <a onclick = 'showMoney()'>
       <%= f.check_box :cash %>
     </a>
   </div>
-  <div class="control-group-cash", hidden>
-    <%= f.label "How much?" %>
-    <a>
-      $ <%= f.text_field :howmuch %>
-    </a>
+  <div class="control-group", hidden>
+    <%= f.label :howmuch, "How much?" %>
+    <div class="input-prepend">
+      <span class="add-on">$</span>
+      <%= f.text_field :howmuch , class: "span2" %>
+    </div>
   </div>
 </div>
 </div>
 
 <row>
   <div class="form-actions">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary", id: "verifyAttrs" %>
   </div>
 </row>
 
