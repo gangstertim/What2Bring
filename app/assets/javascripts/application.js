@@ -25,9 +25,7 @@ $(function addGuest() {
 	$("#new_guest").click(function (e) {
 		e.preventDefault();
 		var rsvp = document.getElementById('rsvp');	
-		$('<p />').
-		load(this.href).
-		insertBefore(rsvp);
+		$('<p />').load(this.href + " #target").insertBefore(rsvp);
 		$(this).hide();
 	});
 });

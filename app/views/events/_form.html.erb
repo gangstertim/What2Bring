@@ -13,7 +13,8 @@
 
 
 <div class="hero-unit">
-  <h1>What2Bring</h1>
+  <h1>What2<br class="visible-phone">Bring</h1>
+  <br class="hidden-desktop">
   <p>You already know when it's happening.  Now, it's only a question of who's coming and what they're bringing.</p>
   <h3>Let's get started:</h3>
   <div class="control-group">
@@ -66,7 +67,7 @@
     <div class="control-group">
       <%= f.label :dishes_temp, "Would you like guests to bring anything?" %>
       <div class="input-append" onkeypress='addDishWithKey(event)'>
-        <%= f.text_field :dishes_temp, placeholder: "crumpets", rel: "tooltip", title: "press return to add the current item to the list", trigger: "focus", data:{placement: "left"}%>
+        <%= f.text_field :dishes_temp, class: "input-large", placeholder: "crumpets", rel: "tooltip", title: "press return to add the current item to the list", trigger: "focus", data:{placement: "left"}%>
         <button class="btn" type="button" onclick="addDish()">Add</button>
       </div>
     </div>

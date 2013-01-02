@@ -25,8 +25,8 @@ font-size: 24px;
 color: #FFFFFF;
 }
 
-input {
-width:80%; 
+input {/*
+width:80%; */
 box-sizing: border-box;
 }
 
@@ -47,18 +47,18 @@ input[type=date] {height: 30px}
 input, textarea, .uneditable-input {
 margin-left: 0;
 max-height: 100px;
-width:80%;
+width:90%;
 }
 
 select {
 width: 39%;
 }
 
-.container {
+/*.container {
 margin-right: 10%;
 margin-left: 10%;
 width:83%;
-}
+}*/
 
 .hero-unit {
 background-color: #33BBFF;

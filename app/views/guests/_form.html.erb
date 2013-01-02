@@ -1,3 +1,4 @@
+<div id="target">
 <%= form_for([@event, @guest]) do |f| %>
 <% if @guest.errors.any? %>
 <div id="error_explanation">
@@ -10,6 +11,7 @@
   </ul>
 </div>
 <% end %>
+
 
 <div class="field">
   <%= f.label :name, "Who are you?" %>
@@ -53,6 +55,7 @@
       <%= f.submit "RSVP", class: "btn btn-block btn-primary", id: "verifyName" %>
     </a>
   </div>
+</div>
 
   <% end %>
 
