@@ -22,6 +22,8 @@
 // });
 
 $(function () {
+	$('#event_date').datepicker().on('click', 'show');
+
 	$("#verifyName").live('click', function (e) {
 		var guestName = $("#guest_name");
 		console.log("testes");
@@ -38,13 +40,14 @@ $(function () {
 			}
 		}
 	});
+
 });
 
 $(function addGuest() {
 	$("#new_guest").on('click', function (e) {
 		e.preventDefault();
 		var rsvp = document.getElementById('rsvp');	
-		$('<p />').load(this.href + " #target").insertBefore(rsvp)
+		$('<p />').load(this.href + " #target").insertBefore(rsvp);
 		$(this).hide();
 	});
 });
@@ -52,14 +55,20 @@ $(function addGuest() {
 $(function () {
 	$("#verifyAttrs").click(function (e) {
 
+		var obj_sizes = new Array();
+		obj_sizes[0] = $("#event_name").val().length;
+		obj_sizes[1] = $("#event_datec").val().length;
+		obj_sizes[2] = $("#event_location").val().length;
+		obj_sizes[3] = $("#event_email").val().length;
+
 		var obj = new Array();
 		obj[0] = $("#event_name");
-		obj[1] = $("#event_datec");
+		obj[1] = $("#event_date");
 		obj[2] = $("#event_location");
 		obj[3] = $("#event_email");
 
 		for (var i=0; i < 4; i++) {
-			if (obj[i].val().length < 1) {
+			if (obj_sizes[i] < 1) {
 				e.preventDefault();
 				if (obj[i].parent().attr("class") != "control-group error") {
 					obj[i].parent().attr("class","control-group error");
@@ -85,6 +94,20 @@ function getNumGuests() {
 
 // }));
 // });
+var addDishCOUNT = 0;
+
+function addDishPopover() {
+	var button = $("#event_dishes_temp").next();
+	if (addDishCOUNT < 1) {
+		button.popover('show');
+	} 
+	if (addDishCOUNT > 4) {
+		button.popover('destroy');
+	}
+
+	addDishCOUNT++;
+	addDishCOUNT++;
+}
 
 function addDishWithKey(event) {
 	if (event.keyCode == 13) {
@@ -96,8 +119,14 @@ function addDishWithKey(event) {
 function addDish() {
 	var dish_temp = $("#event_dishes_temp");
 	var dish_text = dish_temp.val();
+	var dish_pre_text = document.getElementById("event_dishes").value;
+	addDishPopover();
 
-	if (dish_text == "") return;
+	if (dish_text == "") { 
+		addDishCOUNT--;
+		return;
+	}
+
 	dish_text = dish_text.replace(/,/g, '-'); // remove commas
 
 	if ($("#event_dishes").val().length < 1) {
@@ -105,7 +134,7 @@ function addDish() {
 		dish_temp.attr("placeholder","and...")
 		$("#event_dishes").parent().show();
 	} else {
-		document.getElementById("event_dishes").value += ", " + dish_text;
+		document.getElementById("event_dishes").value = dish_text +  ", " + dish_pre_text;
 		dish_temp.attr("placeholder","")
 	}
 	dish_temp.val("");

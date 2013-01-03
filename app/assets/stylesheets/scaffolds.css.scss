@@ -1,13 +1,14 @@
 body {
 background-color: #fff;
 color: #333;
-font-family: verdana, arial, helvetica, sans-serif;
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+font-weight: 300;
 font-size: 13px;
 line-height: 18px;
 }
 
 p, ol, ul, td {
-font-family: verdana, arial, helvetica, sans-serif;
+font-family: arial, helvetica, sans-serif;
 font-size: 13px;
 line-height: 18px;
 }
@@ -19,7 +20,6 @@ font-size: 11px;
 }
 
 a {
-color: #000;
 &:visited {
 color: #666;
 }
@@ -29,10 +29,18 @@ background-color: #000;
 }
 }
 
+.popover-content p {
+	text-align: center;
+}
+
 div {
 &.field, &.actions {
 margin-bottom: 10px;
 }
+}
+
+.hero-unit h1 {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue";
 }
 
 #notice {

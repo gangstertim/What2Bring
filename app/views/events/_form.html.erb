@@ -13,9 +13,15 @@
 
 
 <div class="hero-unit">
-  <h1>What2<br class="visible-phone">Bring</h1>
+  <h1 class="hidden-phone">What<a>2</a>Bring</h1>
+  <h1 class="visible-phone" style="text-align: center">What<a>2</a><br class="visible-phone">Bring</h1>
+
+  <br>
   <br class="hidden-desktop">
-  <p>You already know when it's happening.  Now, it's only a question of who's coming and what they're bringing.</p>
+
+  <p class="hidden-phone">You already know when it's happening.  Now, it's only a question of who's coming <br class="visible-desktop">and what they're bringing.</p>
+  <p class="visible-phone" style="text-align: center">You already know when it's happening.  Now, it's only a question of who's coming and what they're bringing.</p>
+
   <h3>Let's get started:</h3>
   <div class="control-group">
       <%= f.label :name, "My event is called", class: 'control-label' %>
@@ -29,7 +35,11 @@
     <div class="control-group">
       <div class="field">
        <%= f.label :datec, "When?" %>
-       <%= f.text_field :datec, placeholder: "Next tuesday at noon" %>
+       <div class="input-append date" id="event_date" data-date="12/02/2012" data-date-format="mm/dd/yyyy">
+        <%= f.text_field :datec, placeholder: "Next tuesday at noon" , style: "width:82%"%>
+        <span class="add-on"><i class="icon icon-calendar"></i></span>
+      </div>
+      
      </div>
    </div>
    <div class="control-group">
@@ -67,8 +77,8 @@
     <div class="control-group">
       <%= f.label :dishes_temp, "Would you like guests to bring anything?" %>
       <div class="input-append" onkeypress='addDishWithKey(event)'>
-        <%= f.text_field :dishes_temp, class: "input-large", placeholder: "crumpets", rel: "tooltip", title: "press return to add the current item to the list", trigger: "focus", data:{placement: "left"}%>
-        <button class="btn" type="button" onclick="addDish()">Add</button>
+        <%= f.text_field :dishes_temp, class: "input-large", placeholder: "crumpets" %>
+        <button class="btn" type="button" rel="popover" onclick="addDish()" data-placement="bottom" data-trigger="manual" data-content="For quick adding - Press Return" data-animation="true" data-original-title="Type a dish here, then click 'Add'">Add</button>
       </div>
     </div>
     <div class="control-group", hidden>
@@ -90,7 +100,7 @@
   </div>
 </div>
 
-<div class="form-actions">
+<div class="row form-actions">
     <%= f.submit class: "btn btn-primary", id: "verifyAttrs" %>
 </div>
 
