@@ -21,18 +21,10 @@
 // 	nameParser();
 // });
 
-$(function addGuest() {
-	$("#new_guest").click(function (e) {
-		e.preventDefault();
-		var rsvp = document.getElementById('rsvp');	
-		$('<p />').load(this.href + " #target").insertBefore(rsvp);
-		$(this).hide();
-	});
-});
-
 $(function () {
-	$("#verifyName").click(function (e) {
+	$("#verifyName").live('click', function (e) {
 		var guestName = $("#guest_name");
+		console.log("testes");
 		if (guestName.val().length < 1) {
 			e.preventDefault();
 			if (guestName.parent().attr("class") != "control-group error") {
@@ -45,7 +37,15 @@ $(function () {
 				guestName.next().remove();
 			}
 		}
+	});
+});
 
+$(function addGuest() {
+	$("#new_guest").on('click', function (e) {
+		e.preventDefault();
+		var rsvp = document.getElementById('rsvp');	
+		$('<p />').load(this.href + " #target").insertBefore(rsvp)
+		$(this).hide();
 	});
 });
 
@@ -85,6 +85,7 @@ function getNumGuests() {
 
 // }));
 // });
+
 function addDishWithKey(event) {
 	if (event.keyCode == 13) {
 		event.preventDefault();
@@ -93,19 +94,22 @@ function addDishWithKey(event) {
 }
 
 function addDish() {
-	var dish_text = $("#event_dishes_temp").val();
-	if (dish_text == "") return;
+	var dish_temp = $("#event_dishes_temp");
+	var dish_text = dish_temp.val();
 
-	dish_text = dish_text.replace(/,/g, '-');
+	if (dish_text == "") return;
+	dish_text = dish_text.replace(/,/g, '-'); // remove commas
+
 	if ($("#event_dishes").val().length < 1) {
-		var dish_final = document.getElementById("event_dishes").value += dish_text;
+		document.getElementById("event_dishes").value += dish_text;
+		dish_temp.attr("placeholder","and...")
+		$("#event_dishes").parent().show();
 	} else {
-		var dish_final = document.getElementById("event_dishes").value += ", " + dish_text;
+		document.getElementById("event_dishes").value += ", " + dish_text;
+		dish_temp.attr("placeholder","")
 	}
-	$("#event_dishes_temp").val("");
-	$("#event_dishes").parent().show();
-	//     dish_final.outputtext.value += dish_text;
-  };
+	dish_temp.val("");
+};
 
 function listRelevantDishes(dishesToParse,dishesToRemove) {
 	var index = 0;
@@ -174,7 +178,7 @@ function listDishes() {
 function buttonifyDishes() {
 	var contents = document.getElementById('dishes_to_list');
 
-	if (contents.style.display == 'block') {
+	if (contents == null || contents.style.display == 'block') {
 		return;
 	} else {
 		$("#bringin_somethin").hide();
