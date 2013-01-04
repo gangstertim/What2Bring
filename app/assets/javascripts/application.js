@@ -165,6 +165,8 @@ function listRelevantDishes(dishesToParse,dishesToRemove) {
 	return outputArray;
 }
 
+var dishes;
+
 function listDishes() {
 
 	var dishesForParsing = document.getElementById('dishes_for_listing').
@@ -183,7 +185,7 @@ function listDishes() {
 	// console.log("dishes already Brought = ");
 	// console.log(dishesBrought);
 
-	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
+	dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
 	// console.log("dishes = ");
 	// console.log(dishes);
@@ -204,26 +206,44 @@ function listDishes() {
 	};
 }
 
+var noMore = false;
+
 function buttonifyDishes() {
 	var contents = document.getElementById('dishes_to_list');
+	var bringingButton = $("#bringin_somethin")
 
-	if (contents == null || contents.style.display == 'block') {
+	if (contents == null) {
+		return;
+	} else if (contents.style.display == 'block') {
+		$("#dishes_for_clicking").toggle('show');
+		bringingButton.button('toggle');
+
+		if (noMore) {
+			if (($(".popover-content") != null) && $(".popover-content").children().length > 1) {
+				var pop =  $(".popover-content")[0];
+				pop.removeChild(pop.lastChild);
+				pop.removeChild(pop.lastChild);
+			}
+
+			bringingButton.popover('toggle');
+			if ($(".popover-title") != null) $(".popover-title").attr('id',"no_more");
+		}
 		return;
 	} else {
-		$("#bringin_somethin").hide();
+		bringingButton.button('toggle');
 	}
 
-	var dishesForParsing = document.getElementById('dishes_for_clicking').
-	innerHTML.
-	replace(/\s+/g,' ').
-	split(",");
+	// var dishesForParsing = document.getElementById('dishes_for_clicking').
+	// innerHTML.
+	// replace(/\s+/g,' ').
+	// split(",");
 
-	var dishesBrought = document.getElementById('dishes_brought').
-	innerHTML.
-	replace(/\s+/g,' ').
-	split(",");
+	// var dishesBrought = document.getElementById('dishes_brought').
+	// innerHTML.
+	// replace(/\s+/g,' ').
+	// split(",");
 
-	var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
+	// var dishes = listRelevantDishes(dishesForParsing, dishesBrought);
 
 	var new_dishes = [];
 	for (var i=0; i<dishes.length; i++) {
@@ -231,23 +251,29 @@ function buttonifyDishes() {
 			"<a id = name_dishes[" + i + "]>" + dishes[i] + "</a></label>");
 	};
 
+	if (new_dishes.length < 1) {
+		bringingButton.popover('toggle');
+		$(".popover-title").attr('id',"no_more");
+		noMore = true;
+	}
+
+	new_dishes[dishes.length] = 
+		"<div class = \"form-inline\" >" +
+			"<label class=\"checkbox\"><input id=\"clickable_other_dishes\" onclick=\"showOther()\" type=\"checkbox\">" +
+			"<a> other </a></label>" + 
+			"<input id = \"other_dish\" type=\"text\" class=\"input-medium\" style=\"display: none;\" >"+
+		"</div>";
+
 	var dishesChild = $("#dishes_for_clicking");
 	var dishesParent = dishesChild.parent();
 	dishesChild.remove();
 	dishesParent.show();
 
-	if (new_dishes.length < 1) {
-		$("#bringin_somethin").hide();
-		new_dishes[0] = "No more items to bring";
-		$("<p />").html(new_dishes).insertBefore($("#bringin_somethin"));
-		dishesParent.remove();
-	} else {
-		$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
-	}
+	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
 }
 
 function addDishesToGuest() {
-	var numDishes = document.getElementById('dishes_for_clicking').childElementCount;
+	var numDishes = dishes.length;
 
 	for (var i=0; i<numDishes; i++) {
 
@@ -260,6 +286,11 @@ function addDishesToGuest() {
 
 			document.getElementById("guest_dishes").value += dishName +  ",";
 		}
+	}
+
+	if (document.getElementById("clickable_other_dishes").checked) {
+		
+		document.getElementById("guest_dishes").value += $("#other_dish").val() +  ",";
 	}
 }
 
@@ -339,6 +370,19 @@ function guestParser() {
 function share() {
 	if (document.getElementById("notice").innerHTML == "Event was successfully created.") {
 		$("#share").show();
+	}
+}
+
+function showOther() {
+	if (document.getElementById("clickable_other_dishes").checked) {
+		$("#other_dish").attr("style","");
+		if (($(".popover-content") != null) && $(".popover-content").children().length < 2) {
+			$("<br>").appendTo($(".popover-content"));
+			$("<p />").html("Please be sure to <b>not</b> bring anything that is already being brought!").
+			appendTo($(".popover-content"));
+		}
+	} else {
+		$("#other_dish").attr('style','display: none;');
 	}
 }
 
