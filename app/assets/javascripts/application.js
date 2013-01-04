@@ -288,9 +288,9 @@ function addDishesToGuest() {
 		}
 	}
 
-	if (document.getElementById("clickable_other_dishes").checked) {
+	if (document.getElementById("clickable_other_dishes").checked && ($("#other_dish").val().length > 0)) {
 		
-		document.getElementById("guest_dishes").value += $("#other_dish").val() +  ",";
+		document.getElementById("guest_dishes").value +=  " " + $("#other_dish").val() +  ",";
 	}
 }
 
