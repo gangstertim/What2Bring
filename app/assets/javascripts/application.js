@@ -219,22 +219,24 @@ function listDishes() {
 
 var noMore = false;
 
+$(function () {
+	$("#bringin_somethin").on('hover', function () {
+		$("#bringin_somethin").popover('toggle');
+	});
+});
+
 function buttonifyDishes() {
 	var contents = document.getElementById('dishes_to_list');
-	var bringingButton = $("#bringin_somethin")
+	var bringingButton = $("#bringin_somethin");
 
 	if (contents == null) {
 		return;
 	} else if (contents.style.display == 'block') {
+		$("#dishes_to_list").toggle('show');
 		$("#dishes_for_clicking").toggle('show');
 		bringingButton.button('toggle');
 
 		if (noMore) {
-			if (($(".popover-content") != null) && $(".popover-content").children().length > 1) {
-				var pop =  $(".popover-content")[0];
-				pop.removeChild(pop.lastChild);
-				pop.removeChild(pop.lastChild);
-			}
 
 			bringingButton.popover('toggle');
 			if ($(".popover-title") != null) $(".popover-title").attr('id',"no_more");
@@ -265,6 +267,8 @@ function buttonifyDishes() {
 	if (new_dishes.length < 1) {
 		bringingButton.popover('toggle');
 		$(".popover-title").attr('id',"no_more");
+		var popover = $(".popover-inner").parent()
+		popover.attr("class", popover.attr("class") + " hidden-phone")
 		noMore = true;
 	}
 
@@ -387,7 +391,7 @@ function share() {
 function showOther() {
 	if (document.getElementById("clickable_other_dishes").checked) {
 		$("#other_dish").attr("style","");
-		if (($(".popover-content") != null) && $(".popover-content").children().length < 2) {
+		if ($(".popover-footer").length < 1) {
 			$("<h3 class=\"popover-footer\"><p id=redundancy /></h3>").html("Please be sure to <b>not</b> bring anything that is already being brought!").
 			appendTo($(".popover-content").parent());
 		}
