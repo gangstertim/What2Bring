@@ -77,8 +77,8 @@
     <div class="control-group">
       <%= f.label :dishes_temp, "Would you like guests to bring anything?" %>
       <div class="input-append" onkeypress='addDishWithKey(event)'>
-        <%= f.text_field :dishes_temp, class: "input-large", placeholder: "crumpets" %>
-        <button class="btn" type="button" rel="popover" onclick="addDish()" data-placement="bottom" data-trigger="manual" data-content="For quick adding - Press Return" data-animation="true" data-original-title="Type a dish here, then click 'Add'">Add</button>
+        <%= f.text_field :dishes_temp, style: "width: 65%;",  placeholder: "crumpets" %>
+        <button class="btn" id="event_dishes_add" type="button" rel="popover" onclick="addDish()" data-placement="bottom" data-trigger="manual" data-content="For quick adding - Press Return" data-animation="true" data-original-title="Enter an item, then click 'Add'">Add</button>
       </div>
     </div>
     <div class="control-group", hidden>

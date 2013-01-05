@@ -96,16 +96,26 @@ function getNumGuests() {
 // });
 var addDishCOUNT = 0;
 
+
+$(function () {
+	$("#event_dishes_temp").on('hover', function () {
+		if (addDishCOUNT === 0) {
+			var button = $("#event_dishes_temp").next();
+			button.popover('toggle');
+		}
+	});
+});
+
+
 function addDishPopover() {
 	var button = $("#event_dishes_temp").next();
 	if (addDishCOUNT < 1) {
 		button.popover('show');
 	} 
-	if (addDishCOUNT > 4) {
+	if (addDishCOUNT > 3) {
 		button.popover('destroy');
 	}
 
-	addDishCOUNT++;
 	addDishCOUNT++;
 }
 
@@ -123,7 +133,6 @@ function addDish() {
 	addDishPopover();
 
 	if (dish_text == "") { 
-		addDishCOUNT--;
 		return;
 	}
 

@@ -55,11 +55,9 @@ width: 39%;
 }
 
 /*.container {
-margin-right: 10%;
-margin-left: 10%;
-width:83%;
-}*/
-
+max-width:960px;
+}
+*/
 .hero-unit {
 background-color: #33BBFF;
 min-height:225px;
@@ -87,10 +85,10 @@ width: 50%;
 float:right;
 }
 
-.row {
+/*.row {
 max-height: 800px;
 }
-
+*/
 .span5 {
 background-color:#FFFFFF;
 padding-left: 0px;
