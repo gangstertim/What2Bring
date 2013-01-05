@@ -280,7 +280,7 @@ function buttonifyDishes() {
 	dishesChild.remove();
 	dishesParent.show();
 
-	$("<p id = dishes_for_clicking />").html(new_dishes).appendTo(dishesParent);
+	$("<p id = dishes_for_clicking />").html(new_dishes).prependTo(dishesParent);
 }
 
 function addDishesToGuest() {

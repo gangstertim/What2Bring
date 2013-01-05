@@ -20,9 +20,9 @@ class EventsController < ApplicationController
     @guests_cash = @event.guests.find(:all, :select => "bringing_cash")
 
     @email_link = "mailto:?subject= " + @event.name + 
-      "&body=Hey All,%0A%0AYour invited to " + @event.name + 
+      "&body=Hey All,%0A%0AYou are invited to " + @event.name + 
       ". I wan't to know who can make it.%0A%0APlease visit " + event_url(@event) +
-      " to let me if you're coming and what you can pitch in.%0A%0AThanks,%0A" + 
+      " to let me know if you're coming and if so, what you can bring.%0A%0AThanks,%0A" + 
       @event.who
 
     respond_to do |format|

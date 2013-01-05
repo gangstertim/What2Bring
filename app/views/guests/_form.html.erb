@@ -29,9 +29,7 @@
   <p id = "dishes_for_clicking">
     <%= @event.dishes %>
   </p>
-</div>
-
-<% if @event.cash? %>
+  <% if @event.cash? %>
 <div class="field" id="how_much">
   <label><p id="cash" for="guest[bringing_cash]"> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
     I'll chip in some cash</p></label>
@@ -44,6 +42,7 @@
 
   </div>
   <% end %>
+</div>
 
   <div class="field", hidden>
     <%= f.label :dishes %>
