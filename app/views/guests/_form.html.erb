@@ -19,7 +19,7 @@
 </div>
 
 <div class="field">
-  <%= f.label :email, "Your Email" %>
+  <%= f.label :email, "Your Email (optional)" %>
   <%= f.text_field :email, :placeholder=>"BigSmiles@yahoo.com" %>
 </div>
 
@@ -51,7 +51,7 @@
   </div>
 
   <div class="actions" >
-    <a onclick="addDishesToGuest()">
+    <a>
       <%= f.submit "RSVP", class: "btn btn-block btn-primary", id: "verifyName" %>
     </a>
   </div>

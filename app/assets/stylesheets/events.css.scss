@@ -109,7 +109,7 @@ margin-bottom: 0px;
 
 .pull-left {
 margin: auto;
-padding-top: 4%;
+padding-top: 12px;
 padding-left: 4%;
 padding-right: 4%;
 /*margin-bottom: 10px;
@@ -142,6 +142,10 @@ margin-left: 10px;
 #no_more {
 	padding: 0px 0px 0px 0px;
 	border-bottom: 0px;
+}
+
+.navbar-inverse .brand {
+	color: #FFFFFF;
 }
 
 .svg_pic {width: 60px;float:left}

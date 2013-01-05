@@ -34,9 +34,11 @@ $(function () {
 				$("<span class = 'help-inline' />").html("Required").insertAfter(guestName);
 			}
 		} else {
+			addDishesToGuest();
 			if (guestName.parent().attr("class") != "control-group error") {
 				guestName.parent().attr("class","control-group");
 				guestName.next().remove();
+				addDishesToGuest();
 			}
 		}
 	});
@@ -386,9 +388,8 @@ function showOther() {
 	if (document.getElementById("clickable_other_dishes").checked) {
 		$("#other_dish").attr("style","");
 		if (($(".popover-content") != null) && $(".popover-content").children().length < 2) {
-			$("<br>").appendTo($(".popover-content"));
-			$("<p />").html("Please be sure to <b>not</b> bring anything that is already being brought!").
-			appendTo($(".popover-content"));
+			$("<h3 class=\"popover-footer\"><p id=redundancy /></h3>").html("Please be sure to <b>not</b> bring anything that is already being brought!").
+			appendTo($(".popover-content").parent());
 		}
 	} else {
 		$("#other_dish").attr('style','display: none;');
