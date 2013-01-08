@@ -42,7 +42,6 @@ $(function () {
 			}
 		}
 	});
-
 });
 
 $(function addGuest() {
@@ -50,6 +49,7 @@ $(function addGuest() {
 		e.preventDefault();
 		var rsvp = document.getElementById('rsvp');	
 		$('<p />').load(this.href + " #target").insertBefore(rsvp);
+		$('.new_guest').attr('id','newer_guest');
 		$(this).hide();
 	});
 });
@@ -288,6 +288,7 @@ function buttonifyDishes() {
 }
 
 function addDishesToGuest() {
+	document.getElementById("guest_dishes").value = ""
 	var numDishes = dishes.length;
 
 	for (var i=0; i<numDishes; i++) {

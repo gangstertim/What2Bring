@@ -31,14 +31,11 @@
   </p>
   <% if @event.cash? %>
   <div class="field" id="how_much">
-  <label class="checkbox"><p id="cash" for="guest[bringing_cash]"> <%= f.check_box :bringing_cash, id: 'cash_check_box' %> 
-    I'll chip in some cash</p></label>
+  <label class="checkbox", rel="tooltip", data-placement="left" title="<%=@event.who%> suggested bringing <%=number_to_currency(@event.howmuch)%>" >
+    <p id="cash" for="guest[bringing_cash]"> <%= f.check_box :bringing_cash, id: 'cash_check_box'%> 
+    I'll chip in some cash</p>
+  </label>
     <br>
-
-    <p id="suggested_amount" >
-      <%= @event.who %> suggested bringing
-      <%= number_to_currency(@event.howmuch) %>
-    </p>
   </div>
   <% end %>
 </div>
@@ -53,7 +50,6 @@
       <%= f.submit "RSVP", class: "btn btn-block btn-primary", id: "verifyName" %>
     </a>
   </div>
-
 </div>
 
   <% end %>
